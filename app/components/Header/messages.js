@@ -1,17 +1,21 @@
 /*
- * HomePage Messages
+ * Header Messages
  *
  * This contains all the text for the HomePage component.
  */
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  home: {
-    id: 'boilerplate.components.Header.home',
-    defaultMessage: 'Home',
+  signIn: {
+    id: 'nookpad.components.Header.signIn.message',
+    defaultMessage: 'Login',
   },
-  features: {
-    id: 'boilerplate.components.Header.features',
-    defaultMessage: 'Features',
+  createListing: {
+    id: 'nookpad.components.Header.createListing.message',
+    defaultMessage: 'Create listing',
+  },
+  search: {
+    id: 'nookpad.components.Header.search.message',
+    defaultMessage: 'Search',
   },
 });

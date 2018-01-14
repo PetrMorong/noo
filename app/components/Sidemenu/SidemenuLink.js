@@ -20,13 +20,14 @@ const SidemenuLinkWrap = styled(Link)`
 
 const LabelWrap = styled.div`
   margin-left: 25px;
+  color: rgba(0,0,0,.7);
 `;
 
-function SidemenuLink({ message, icon, to }) {
+function SidemenuLink({ message, icon, to, currentPathName }) {
   return (
     <SidemenuLinkWrap to={to}>
       {icon}
-      <LabelWrap>
+      <LabelWrap style={{ fontWeight: currentPathName === to ? '600' : 'normal' }}>
         <FormattedMessage {...message} />
       </LabelWrap>
     </SidemenuLinkWrap>
@@ -37,6 +38,7 @@ SidemenuLink.propTypes = {
   message: PropTypes.object,
   icon: PropTypes.any,
   to: PropTypes.string,
+  currentPathName: PropTypes.string,
 };
 
 export default SidemenuLink;

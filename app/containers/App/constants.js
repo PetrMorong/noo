@@ -15,4 +15,7 @@ export const LOAD_REPOS_ERROR = 'nookpad/App/LOAD_REPOS_ERROR';
 
 export const SIDE_MENU_TOGGLE = 'nookpad/App/SIDE_MENU_TOGGLE';
 
+export const USER_LOGIN = 'nookpad/App/USER_LOGIN';
+export const USER_SIGN_OUT = 'nookpad/App/USER_SIGN_OUT';
+
 export const DEFAULT_LOCALE = 'en';

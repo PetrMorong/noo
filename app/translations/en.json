@@ -1,4 +1,8 @@
 {
+  "nookpad.components.Header.signIn.message": "Login",
+  "nookpad.components.Header.createListing.message": "List property",
+
+
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
   "boilerplate.components.Footer.license.message": "This project is licensed under the MIT license.",
   "boilerplate.components.Header.features": "Features",

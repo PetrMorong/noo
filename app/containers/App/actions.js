@@ -20,6 +20,8 @@ import {
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
   SIDE_MENU_TOGGLE,
+  USER_LOGIN,
+  USER_SIGN_OUT,
 } from './constants';
 
 /**
@@ -73,5 +75,29 @@ export function repoLoadingError(error) {
 export function toggleSideMenu() {
   return {
     type: SIDE_MENU_TOGGLE,
+  };
+}
+
+/**
+ * Dispatched when clicking on user logs in
+ *
+ * @param  {object} TODO
+ *
+ * @return {object}  An action object with a type of USER_LOGIN
+ */
+export function login() {
+  return {
+    type: USER_LOGIN,
+  };
+}
+
+/**
+ * Dispatched when clicking on user sign out
+ *
+ * @return {object}  An action object with a type of USER_SIGN_OUT
+ */
+export function signOut() {
+  return {
+    type: USER_SIGN_OUT,
   };
 }

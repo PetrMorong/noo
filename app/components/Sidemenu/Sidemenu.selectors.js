@@ -11,7 +11,15 @@ const makeSelectSideMenuOpen = () => createSelector(
   (appState) => appState.get('sideMenuOpen')
 );
 
+const selectRoute = (state) => state.getIn(['route', 'location']);
+
+const makeSelectPathname = () => createSelector(
+  selectRoute,
+  (routeState) => routeState.get('pathname')
+);
+
 export {
   selectApp,
   makeSelectSideMenuOpen,
+  makeSelectPathname,
 };
