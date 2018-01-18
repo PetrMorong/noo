@@ -55,6 +55,7 @@ import './global-styles';
 const muiTheme = getMuiTheme({
   palette: {
     textColor: 'rgba(0,0,0,.45)',
+    primary1Color: '#009788',
   },
 });
 

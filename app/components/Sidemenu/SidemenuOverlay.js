@@ -6,7 +6,7 @@ const Wrap = styled.div`
   background: rgba(0,0,0,.5);
   z-index: ${(props) => props.opened ? '99' : '-1'};
   opacity: ${(props) => props.opened ? '1' : '0'};
-  transition: 200ms;
+  transition: 50ms;
   position: fixed;
   top: 0;
   left: 0;

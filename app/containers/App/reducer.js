@@ -18,6 +18,8 @@ import {
   LOAD_REPOS,
   LOAD_REPOS_ERROR,
   SIDE_MENU_TOGGLE,
+  USER_LOGIN,
+  USER_SIGN_OUT,
 } from './constants';
 
 // The initial state of the App
@@ -28,7 +30,9 @@ const initialState = fromJS({
   userData: {
     repositories: false,
   },
+
   sideMenuOpen: false,
+  user: false,
 });
 
 function appReducer(state = initialState, action) {
@@ -53,6 +57,12 @@ function appReducer(state = initialState, action) {
     case LOCATION_CHANGE:
       return state
         .set('sideMenuOpen', false);
+    case USER_LOGIN:
+      return state
+        .set('user', true);
+    case USER_SIGN_OUT:
+      return state
+        .set('user', false);
     default:
       return state;
   }

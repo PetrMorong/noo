@@ -8,4 +8,7 @@ export default styled.div`
   padding: 0 8px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: -1px;
+  z-index: 99;
 `;

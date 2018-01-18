@@ -11,7 +11,19 @@ export default defineMessages({
     defaultMessage: 'Home',
   },
   features: {
-    id: 'boilerplate.components.Header.features',
+    id: 'nookpad.components.Header.features',
     defaultMessage: 'Features',
+  },
+  findProperty: {
+    id: 'nookpad.components.Header.findProperty',
+    defaultMessage: 'Find a property',
+  },
+  createProperty: {
+    id: 'nookpad.components.Header.createProperty',
+    defaultMessage: 'Create a property',
+  },
+  favoriteProperty: {
+    id: 'nookpad.components.Header.favoriteProperty',
+    defaultMessage: 'Favorite properties',
   },
 });
