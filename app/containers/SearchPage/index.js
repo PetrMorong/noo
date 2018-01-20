@@ -15,7 +15,7 @@ const SearchPageWrap = styled.div`
   flex-wrap: wrap;
 `;
 
-export default class FeaturePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export default class SearchPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (

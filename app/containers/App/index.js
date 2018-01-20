@@ -17,6 +17,7 @@ import SearchPage from 'containers/SearchPage/Loadable';
 import ListingDetailPage from 'containers/ListingDetailPage/Loadable';
 import ListPropertyPage from 'containers/ListPropertyPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import ProfileSettingsPage from 'containers/ProfileSettingsPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidemenu from 'components/Sidemenu';
@@ -34,7 +35,7 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="% - Nookpad"
+        titleTemplate="Nookpad"
         defaultTitle="Nookpad"
       >
         <meta name="description" content="Nookpad - matching tenants and landlords" />
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="/features" component={FeaturePage} />
         <Route path="/listing-detail" component={ListingDetailPage} />
         <Route path="/list-property" component={ListPropertyPage} />
+        <Route path="/profile-settings" component={ProfileSettingsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
 
 import IconButton from 'material-ui/IconButton';
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
@@ -12,7 +12,8 @@ import ExitIcon from 'material-ui/svg-icons/action/exit-to-app';
 import { dimensions35, dropdownAnchorOrigin, dimensions45, paddingLeft75 } from './Header.constants';
 import { HeaderProfileAccount, HeaderProfileUsername, HeaderProfileEmail, HeaderProfileWrap } from './Header.styles';
 
-function HeaderProfile({ onSignOut }) {
+function HeaderProfile({ onSignOut, history }) {
+  const navigateToProfile = () => history.push('/profile-settings');
   return (
     <HeaderProfileWrap>
       <IconMenu
@@ -37,9 +38,10 @@ function HeaderProfile({ onSignOut }) {
           </div>
         </HeaderProfileAccount>
         <MenuItem
-          primaryText="Profile translate"
+          primaryText="Profile"
           leftIcon={<ProfileIcon />}
           innerDivStyle={paddingLeft75}
+          onClick={navigateToProfile}
         />
         <MenuItem
           primaryText="Sign out "
@@ -55,6 +57,9 @@ function HeaderProfile({ onSignOut }) {
 
 HeaderProfile.propTypes = {
   onSignOut: PropTypes.func,
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default HeaderProfile;
+export default withRouter(HeaderProfile);

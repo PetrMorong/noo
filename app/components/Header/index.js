@@ -14,7 +14,7 @@ import Logo from './Logo';
 import HeaderFlatButton from './HeaderFlatButton';
 import SearchBar from './SearchBar';
 import HeaderProfile from './HeaderProfile';
-import { HeaderCreateListingWrap } from './Header.styles';
+import { HeaderCreateListingWrap, HeaderFlatButtonWrap } from './Header.styles';
 
 function Header({ handleBurgerClick, handleLogin, user, handleSignOut }) {
   return (
@@ -34,11 +34,13 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut }) {
           onSignOut={handleSignOut}
         />
         :
-        <HeaderFlatButton
-          to="/signIn"
-          labelKey="nookpad.components.Header.signIn.message"
-          onClick={handleLogin}
-        />
+        <HeaderFlatButtonWrap>
+          <HeaderFlatButton
+            to="/signIn"
+            labelKey="nookpad.components.Header.signIn.message"
+            onClick={handleLogin}
+          />
+        </HeaderFlatButtonWrap>
       }
     </HeaderWrap>
   );

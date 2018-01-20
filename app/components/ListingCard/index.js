@@ -48,7 +48,7 @@ function ListingCard({ muiTheme }) {
   `;
 
   return (
-    <ListingCardWrap>
+    <ListingCardWrap to="/listing-detail" >
       <Img src="https://s-ec.bstatic.com/images/hotel/max1024x768/360/36022959.jpg" alt="img" />
       <FirstLineWrap>
         <AmenitiesWrap>

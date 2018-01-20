@@ -19,6 +19,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import createHistory from 'history/createBrowserHistory';
 import 'sanitize.css/sanitize.css';
 
+import ScrollToTop from 'components/ScrollToTop';
 // Import root app
 import App from 'containers/App';
 
@@ -56,6 +57,9 @@ const muiTheme = getMuiTheme({
   palette: {
     textColor: 'rgba(0,0,0,.45)',
     primary1Color: '#009788',
+    primary2Color: 'rgba(0, 151, 136, .8)',
+    accent1Color: '#009788',
+    pickerHeaderColor: '#009788',
   },
 });
 
@@ -82,7 +86,9 @@ const render = (messages) => {
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
           <MuiThemeProvider muiTheme={muiTheme}>
-            <App />
+            <ScrollToTop>
+              <App />
+            </ScrollToTop>
           </MuiThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
