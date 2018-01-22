@@ -31,7 +31,13 @@ export const HeaderCreateListingWrap = styled.div`
 `;
 export const HeaderProfileWrap = styled.div`
   margin-right: 10px;
-  
+
+  @media(max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const HeaderFlatButtonWrap = styled.div`
   @media(max-width: 600px) {
     display: none;
   }
