@@ -20,7 +20,7 @@ import { HeaderCreateListingWrap, HeaderFlatButtonWrap } from './Header.styles';
 function Header({ handleBurgerClick, handleLogin, user, handleSignOut }) {
   return (
     <HeaderWrap>
-      <HeaderBurger onClick={handleBurgerClick} hasAlert="true" />
+      <HeaderBurger onClick={handleBurgerClick} hasAlert={1} />
       <Logo />
       <SearchBar />
       <HeaderCreateListingWrap>
@@ -30,7 +30,7 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut }) {
           style={{ minWidth: '150px' }}
         />
       </HeaderCreateListingWrap>
-      <Notification hasAlert="true" />
+      <Notification hasAlert={1} />
       {user ?
         <HeaderProfile
           onSignOut={handleSignOut}
