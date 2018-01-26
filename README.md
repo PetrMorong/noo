@@ -1,3 +1,30 @@
+
+### Commit guidelines 
+
+``` 
+git checkout -b feature/... 
+git checkout -b fix/... 
+``` 
+
+``` 
+[ADD] new file/fonction/feature 
+[UPD] update file/fontion/feature 
+[UPG] upgrade dependency 
+[ARC] refactor part of the project 
+[DEL] remove file/fonction/feature 
+[WIP] work in progress 
+``` 
+
+``` 
+git checkout develop 
+git merge origin feature/... 
+git merge origin fix/... 
+``` 
+
+
+
+
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
