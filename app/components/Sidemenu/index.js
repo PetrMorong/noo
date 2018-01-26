@@ -6,33 +6,57 @@ import { connect } from 'react-redux';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import AddIcon from 'material-ui/svg-icons/content/add';
+import IconButton from 'material-ui/IconButton';
+import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
+import SettingsIcon from 'material-ui/svg-icons/action/settings';
+import SignOutIcon from 'material-ui/svg-icons/navigation/close';
+import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import { toggleSideMenu } from 'containers/App/actions';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
+import AccountWrap from './AccountWrap';
+import ProfileWrap from './ProfileWrap';
 import SidemenuWrap from './SidemenuWrap';
-import HeaderBurger from '../Header/HeaderBurger';
 import Logo from '../Header/Logo';
 import SidemenuHeader from './SidemenuHeader';
 import SidemenuLink from './SidemenuLink';
 import SidemenuOverlay from './SidemenuOverlay';
 import messages from './messages';
 import { makeSelectSideMenuOpen, makeSelectPathname } from './Sidemenu.selectors';
+import { HeaderProfileUsername, HeaderProfileEmail } from '../Header/Header.styles';
 
 function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme }) {
   return (
     <div>
       <SidemenuWrap opened={sideMenuOpen}>
         <SidemenuHeader>
-          <HeaderBurger onClick={handleBurgerClick} />
           <Logo />
         </SidemenuHeader>
+        <AccountWrap>
+          <IconButton
+            iconStyle={{ height: '100px', width: '100px' }}
+            style={{ padding: 0, height: 100, width: 100 }}
+          >
+            <AccountIcon />
+          </IconButton>
+          <HeaderProfileUsername>Mehdi Amor</HeaderProfileUsername>
+          <HeaderProfileEmail>mehdi.amor@gmail.com</HeaderProfileEmail>
+        </AccountWrap>
         <SidemenuLink
           message={messages.home}
           currentPathName={pathname}
           icon={<HomeIcon style={{ color: pathname === '/' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
           to="/"
         />
+        <ProfileWrap>
+          <SidemenuLink
+            message={messages.activity}
+            currentPathName={pathname}
+            icon={<NotifyIcon style={{ color: muiTheme.palette.textColor }} />}
+            to="/"
+          />
+        </ProfileWrap>
         <SidemenuLink
           message={messages.createProperty}
           currentPathName={pathname}
@@ -51,6 +75,20 @@ function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme }) {
           icon={<FavoriteIcon style={{ color: pathname === '/favorite-properties' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
           to="/favorite-properties"
         />
+        <ProfileWrap>
+          <SidemenuLink
+            message={messages.accountSettings}
+            currentPathName={pathname}
+            icon={<SettingsIcon style={{ color: pathname === '/account-settings' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
+            to="/profile-settings"
+          />
+          <SidemenuLink
+            message={messages.signOut}
+            currentPathName={pathname}
+            icon={<SignOutIcon style={{ color: muiTheme.palette.textColor }} />}
+            to="/favorite-properties"
+          />
+        </ProfileWrap>
       </SidemenuWrap>
       <SidemenuOverlay opened={sideMenuOpen} onClick={handleBurgerClick} />
     </div>

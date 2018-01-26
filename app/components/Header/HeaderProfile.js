@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 import IconButton from 'material-ui/IconButton';
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';

@@ -7,13 +7,15 @@ const LogoWrapper = styled.div`
   font-size: 20px;
   margin-right: 80px;
 
-  @media(max-width: 700px) {
+  @media(max-width: 768px) {
     margin-right: 40px;
   }
+
   @media(max-width: 600px) {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-right: 15px;
   }
 `;
 

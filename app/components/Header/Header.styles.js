@@ -25,20 +25,20 @@ export const HeaderProfileEmail = styled.div`
   font-size: 13px;
 `;
 export const HeaderCreateListingWrap = styled.div`
-  @media(max-width: 600px) {
+  @media(max-width: 768px) {
     display: none;
   }
 `;
 export const HeaderProfileWrap = styled.div`
   margin-right: 10px;
 
-  @media(max-width: 600px) {
+  @media(max-width: 768px) {
     display: none;
   }
 `;
 
 export const HeaderFlatButtonWrap = styled.div`
-  @media(max-width: 600px) {
+  @media(max-width: 768px) {
     display: none;
   }
 `;

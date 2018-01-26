@@ -10,6 +10,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import IconButton from 'material-ui/IconButton';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import Dialog from 'material-ui/Dialog';
+import ListingDetailHeader from './ListingDetailHeader';
 
 const Wrap = styled.div`
   background: white;
@@ -30,6 +31,7 @@ const Wrap = styled.div`
     justify-content: center;
     transition: 250ms ease-out;
     z-index: 999;
+    overflow: hidden;
   }
 `;
 const SmallWrap = styled.div`
@@ -39,6 +41,12 @@ const SmallWrap = styled.div`
     align-items: center;
   }
 `;
+const ImageWrap = styled.div`
+  display: none;
+  @media(max-width: 1000px) {
+    display: ${(props) => props.expandMobile ? 'block' : 'none'};
+  }
+`;
 const Price = styled.div`
   font-size: 18px;
   font-weight: 600;
@@ -46,23 +54,33 @@ const Price = styled.div`
   span {
     font-size: 12px;
   }
+  strong {
+    font-size: 18px;
+    font-weight: 600;
+  }
   p {
     font-size: 12px;
     font-weight: 400;
     margin-top: 1px;
     color: rgba(0,0,0,.7);
     @media(max-width: 1000px) {
-      display: ${(props) => props.expandMobile ? 'block' : 'none'};
+      display: block;
     }
   }
   @media(max-width: 1000px) {
     display: ${(props) => props.expandMobile ? 'block' : 'flex'};
     flex: 1;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
     margin-left: ${(props) => props.expandMobile ? '0' : '15px'};
     span {
       margin-left: 5px;
-      display: ${(props) => props.expandMobile ? '' : 'none'};
+    }
+    br {
+      display: none;
+    }
+    p {
+      margin-left: 5px;
     }
   }
 `;
@@ -73,6 +91,17 @@ const DateInputWrap = styled.div`
 
   @media(max-width: 1000px) {
     display: ${(props) => props.expandMobile ? 'flex' : 'none'};
+    div {
+      width: 50%;
+    }
+  }
+
+  @media(max-width: 450px) {
+    display: ${(props) => props.expandMobile ? 'flex' : 'none'};
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
   }
 `;
 const H5 = styled.h5`
@@ -127,7 +156,8 @@ const IconButtonWrap = styled.div`
   @media(max-width: 1000px) {
     margin-left: -15px;
     margin-bottom: 15px;
-    display: ${(props) => props.expandMobile ? 'block' : 'none'}
+    display: ${(props) => props.expandMobile ? 'flex' : 'none'};
+    justify-content: flex-end;
   }
 `;
 
@@ -154,19 +184,22 @@ class ListingDetailPriceCard extends React.Component {
     return (
       <Wrap expandMobile={expandMobile}>
         <SmallWrap expandMobile={expandMobile}>
+          <ImageWrap expandMobile={expandMobile}>
+            <ListingDetailHeader expandMobile={expandMobile} />
+          </ImageWrap>
           <IconButtonWrap expandMobile={expandMobile}>
             <IconButton onClick={this.handleToggleViewingMobile}>
               <CloseIcon />
             </IconButton>
           </IconButtonWrap>
           <Price expandMobile={expandMobile}>
-            ‎£99,999 <span> per month</span> <br /> <p>35 offers</p>
+            ‎<span><strong>£99,999</strong> per month</span> <br /> <p>35 offers</p>
           </Price>
 
           <H5 expandMobile={expandMobile}>Select date and time</H5>
           <DateInputWrap expandMobile={expandMobile}>
             <DatePicker hintText="Date" textFieldStyle={{ width: expandMobile ? '90%' : '107px' }} />
-            <TimePicker hintText="Time" textFieldStyle={{ width: expandMobile ? '100%' : '107px' }} />
+            <TimePicker hintText="Time" textFieldStyle={{ width: expandMobile ? '90%' : '107px' }} />
           </DateInputWrap>
           <Fbmobile expandMobile={expandMobile}>
             <FlatButtonWrap>
@@ -174,7 +207,7 @@ class ListingDetailPriceCard extends React.Component {
             </FlatButtonWrap>
           </Fbmobile>
           <Rbmobile expandMobile={expandMobile}>
-            <RaisedButton primary label={expandMobile ? 'Schedule viewing' : 'Wiewing'} labelStyle={{ color: 'white' }} onClick={expandMobile ? this.handleToggleDialog : this.handleToggleViewingMobile} />
+            <RaisedButton primary label={expandMobile ? 'Schedule viewing' : 'Viewing'} labelStyle={{ color: 'white' }} onClick={expandMobile ? this.handleToggleDialog : this.handleToggleViewingMobile} />
           </Rbmobile>
           <Rbweb>
             <RaisedButton primary label="Schedule viewing" fullWidth labelStyle={{ color: 'white' }} onClick={this.handleToggleDialog} />
