@@ -47,6 +47,15 @@ function ListingCard({ muiTheme }) {
     top: 10px;
   `;
 
+  const BidCount = styled.span`
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: ${muiTheme.palette.primary1Color};
+    font-size: 14px;
+    font-weight: 500;
+  `;
+
   return (
     <ListingCardWrap to="/listing-detail" >
       <Img src="https://s-ec.bstatic.com/images/hotel/max1024x768/360/36022959.jpg" alt="img" />
@@ -72,6 +81,9 @@ function ListingCard({ muiTheme }) {
       <Favorite>
         <FavoriteIcon style={{ color: 'white' }} />
       </Favorite>
+      <BidCount>
+        999 Bids
+      </BidCount>
     </ListingCardWrap>
   );
 }
