@@ -36,12 +36,12 @@ const MyMapComponent = withScriptjs(withGoogleMap(() => (
   </GoogleMap>
 )));
 
-function ListingDetailMap() {
+function ListingDetailMap({ title }) {
   return (
     <Wrap>
       <Container>
         <SmallWrap>
-          <Title>The neighborhoood</Title>
+          <Title>{title}</Title>
           <MyMapComponent
             isMarkerShown
             googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
@@ -56,7 +56,7 @@ function ListingDetailMap() {
 }
 
 ListingDetailMap.propTypes = {
-  muiTheme: PropTypes.object,
+  title: PropTypes.string,
 };
 
 export default muiThemeable()(ListingDetailMap);
