@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import Lightbox from 'react-images';
+import PropTypes from 'prop-types';
 
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -30,6 +31,7 @@ const ShowPhotosWrap = styled.div`
   @media(max-width: 1000px) {
     right: 20px;
     left: initial;
+    display: ${(props) => props.expandMobile ? 'none' : 'block'};
   }
 `;
 const ShareFavoriteWeb = styled.div`
@@ -92,6 +94,7 @@ class ListingDetailHeader extends React.Component {
   }
 
   render() {
+    const { expandMobile } = this.props;
     return (
       <ListingDetailHeaderWrap>
         <CoverBorder />
@@ -110,7 +113,7 @@ class ListingDetailHeader extends React.Component {
             theme={LightboxTheme}
           />
         </LightboxWrap>
-        <ShowPhotosWrap>
+        <ShowPhotosWrap expandMobile={expandMobile}>
           <FlatButton label="View photos" secondary onClick={this.toggleLightbox} />
         </ShowPhotosWrap>
         <ShareFavoriteWeb>
@@ -130,11 +133,8 @@ class ListingDetailHeader extends React.Component {
   }
 }
 
-/* ListingDetailHeader.propTypes = {
-  message: PropTypes.object,
-  icon: PropTypes.any,
-  to: PropTypes.string,
-  currentPathName: PropTypes.string,
-};*/
+ListingDetailHeader.propTypes = {
+  expandMobile: PropTypes.bool,
+};
 
 export default ListingDetailHeader;

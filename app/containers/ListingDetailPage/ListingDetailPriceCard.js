@@ -10,6 +10,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import IconButton from 'material-ui/IconButton';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import Dialog from 'material-ui/Dialog';
+import ListingDetailHeader from './ListingDetailHeader';
 
 const Wrap = styled.div`
   background: white;
@@ -30,6 +31,7 @@ const Wrap = styled.div`
     justify-content: center;
     transition: 250ms ease-out;
     z-index: 999;
+    overflow: hidden;
   }
 `;
 const SmallWrap = styled.div`
@@ -37,6 +39,12 @@ const SmallWrap = styled.div`
     width: 100%;
     display: ${(props) => props.expandMobile ? 'block' : 'flex'};
     align-items: center;
+  }
+`;
+const ImageWrap = styled.div`
+  display: none;
+  @media(max-width: 1000px) {
+    display: ${(props) => props.expandMobile ? 'block' : 'none'};
   }
 `;
 const Price = styled.div`
@@ -176,6 +184,9 @@ class ListingDetailPriceCard extends React.Component {
     return (
       <Wrap expandMobile={expandMobile}>
         <SmallWrap expandMobile={expandMobile}>
+          <ImageWrap expandMobile={expandMobile}>
+            <ListingDetailHeader expandMobile={expandMobile} />
+          </ImageWrap>
           <IconButtonWrap expandMobile={expandMobile}>
             <IconButton onClick={this.handleToggleViewingMobile}>
               <CloseIcon />
