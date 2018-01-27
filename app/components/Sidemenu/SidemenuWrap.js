@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
   background: #F5F5F5;
-  width: 300px;
+  width: 250px;
   height: 100%;
   position: fixed;
   z-index: 100;

@@ -11,11 +11,11 @@ const BurgerWrapper = styled.div`
   position: relative;
 `;
 
-function HeaderBurger({ onClick, hasAlert }) {
+function HeaderBurger({ onClick, hasAlert, location }) {
   return (
     <BurgerWrapper>
       {hasAlert && <RedAlert type="burger" />}
-      <IconButton onClick={onClick}>
+      <IconButton onClick={onClick} iconStyle={{ fill: location === '/activity' ? 'white' : 'currentColor' }}>
         <MenuIcon />
       </IconButton>
     </BurgerWrapper>
@@ -25,6 +25,7 @@ function HeaderBurger({ onClick, hasAlert }) {
 HeaderBurger.propTypes = {
   onClick: PropTypes.func,
   hasAlert: PropTypes.bool,
+  location: PropTypes.string,
 };
 
 export default HeaderBurger;

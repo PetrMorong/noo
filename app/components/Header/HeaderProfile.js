@@ -12,14 +12,14 @@ import ExitIcon from 'material-ui/svg-icons/action/exit-to-app';
 import { dimensions35, dropdownAnchorOrigin, dimensions45, paddingLeft75 } from './Header.constants';
 import { HeaderProfileAccount, HeaderProfileUsername, HeaderProfileEmail, HeaderProfileWrap } from './Header.styles';
 
-function HeaderProfile({ onSignOut, history }) {
+function HeaderProfile({ onSignOut, history, location }) {
   const navigateToProfile = () => history.push('/profile-settings');
   return (
     <HeaderProfileWrap>
       <IconMenu
         iconButtonElement={
           <IconButton
-            iconStyle={dimensions35}
+            iconStyle={{ ...dimensions35, fill: location.pathname === '/activity' ? 'white' : 'currentColor' }}
             style={{ padding: 0 }}
           >
             <AccountIcon />
@@ -57,6 +57,7 @@ function HeaderProfile({ onSignOut, history }) {
 
 HeaderProfile.propTypes = {
   onSignOut: PropTypes.func,
+  location: PropTypes.string,
   history: React.PropTypes.shape({
     push: React.PropTypes.func.isRequired,
   }).isRequired,

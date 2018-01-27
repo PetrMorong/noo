@@ -9,8 +9,7 @@ import AddIcon from 'material-ui/svg-icons/content/add';
 import IconButton from 'material-ui/IconButton';
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
-import SignOutIcon from 'material-ui/svg-icons/navigation/close';
+import SignOutIcon from 'material-ui/svg-icons/action/exit-to-app';
 import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import { toggleSideMenu } from 'containers/App/actions';
 import muiThemeable from 'material-ui/styles/muiThemeable';
@@ -76,12 +75,6 @@ function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme }) {
           to="/favorite-properties"
         />
         <ProfileWrap>
-          <SidemenuLink
-            message={messages.accountSettings}
-            currentPathName={pathname}
-            icon={<SettingsIcon style={{ color: pathname === '/account-settings' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
-            to="/profile-settings"
-          />
           <SidemenuLink
             message={messages.signOut}
             currentPathName={pathname}

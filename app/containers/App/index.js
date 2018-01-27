@@ -5,7 +5,6 @@
  * This component is the skeleton around the actual pages, and should only
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
@@ -18,6 +17,7 @@ import ListingDetailPage from 'containers/ListingDetailPage/Loadable';
 import ListPropertyPage from 'containers/ListPropertyPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ProfileSettingsPage from 'containers/ProfileSettingsPage/Loadable';
+import ActivityPage from 'containers/ActivityPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Sidemenu from 'components/Sidemenu';
@@ -49,6 +49,7 @@ export default function App() {
         <Route path="/listing-detail" component={ListingDetailPage} />
         <Route path="/list-property" component={ListPropertyPage} />
         <Route path="/profile-settings" component={ProfileSettingsPage} />
+        <Route path="/activity" component={ActivityPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
