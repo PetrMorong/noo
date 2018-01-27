@@ -210,7 +210,7 @@ class ProfileSettingsPage extends React.Component {
                 <MailIcon />
                 <VerifyLineWrapSmall>
                   <span>Email address</span>
-                  <b>johne@gmail.com</b>
+                  <b>john@gmail.com</b>
                 </VerifyLineWrapSmall>
               </Flex>
               <FlatButton label="Verify" primary />
