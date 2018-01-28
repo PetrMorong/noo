@@ -235,6 +235,7 @@
     "react-images": "^0.5.14",
     "react-intl": "2.3.0",
     "react-loadable": "4.0.3",
+    "react-paginate": "^5.0.0",
     "react-photo-gallery": "^6.0.22",
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
