@@ -10,19 +10,27 @@ import styled from 'styled-components';
 import 'react-select/dist/react-select.css';
 import Select from 'react-select';
 import ListingCard from 'components/ListingCard';
+import Pagination from 'components/Pagination';
 
 const SearchPageWrap = styled.div`
   display: flex;
 `;
 const ListingCardsWrap = styled.div`
-  width: calc(64%);
-  padding: 48px 24px 48px 48px;
+  width: 100%;
+  padding: 0px 24px 0px 48px;
+  
   display: flex;
   flex-wrap: wrap;
+  height: calc(100vh - 250px);
+  overflow: auto;
+  margin-top: 48px;
+  margin-bottom: 80px;
+  position: relative;
 
   @media (max-width: 768px) {
+    margin-top: 48px;
     width: 100%;
-    padding: 60px;
+    padding: 0 60px;
   }
 
   @media (max-width: 450px) {
@@ -114,6 +122,15 @@ const SearchBarWrap = styled.div`
   }
 `;
 
+const ListingWrap = styled.div`
+  position: relative;
+  width: 64%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 const options = [
 { label: '£ 2000 to £ 2200', value: 'price' },
 { label: 'Amenities', value: 'amenities' },
@@ -177,21 +194,24 @@ export default class SearchPage extends React.Component { // eslint-disable-line
           />
         </SearchBarWrap>
         <SearchPageWrap>
-          <ListingCardsWrap>
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-            <ListingCard />
-          </ListingCardsWrap>
+          <ListingWrap>
+            <ListingCardsWrap>
+              <ListingCard />
+              <ListingCard />
+              <ListingCard />
+              <ListingCard />
+              <ListingCard />
+              <ListingCard />
+              <ListingCard />
+            </ListingCardsWrap>
+            <Pagination pageCount={10} />
+          </ListingWrap>
           <SearchMapWrap>
             <MyMapComponent
               isMarkerShown
               googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '100vh', margin: 20 }} />}
+              containerElement={<div style={{ height: 'calc(100vh - 170px)', margin: 20 }} />}
               mapElement={<div style={{ height: '100%' }} />}
             />
           </SearchMapWrap>
