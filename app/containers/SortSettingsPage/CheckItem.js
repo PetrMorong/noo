@@ -32,17 +32,21 @@ background-color: #010101;
 }
 `;
 
-function CheckItem({ data }) {
-  return (
-    <CheckItemWrap>
-      <span>{data}</span>
-      <input type="checkbox" />
-    </CheckItemWrap>
-  );
+class CheckItem extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    const { data, value } = this.props;
+    return (
+      <CheckItemWrap>
+        <span>{data}</span>
+        <input type="checkbox" value={value} />
+      </CheckItemWrap>
+    );
+  }
 }
 
 CheckItem.propTypes = {
   data: PropTypes.string.isRequired,
+  value: PropTypes.bool,
 };
 
 export default CheckItem;
