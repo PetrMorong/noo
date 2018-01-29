@@ -40,32 +40,36 @@ const SeparatorWrap = styled.div`
   background-color: rgba(0, 0, 0, 0.12);
 `;
 
-function CheckList({ dataList, type, title }) {
-  return (
-    <CheckListWrap>
-      <h2>{title}</h2>
-      {
-        dataList.map((data) => {
-          switch (type) {
-            case 'counter':
-              return <CounterItem key={data} data={data} />;
-            case 'check':
-              return <CheckItem key={data} data={data} />;
-            default:
-              return <CheckItem key={data} data={data} />;
-          }
-        })
-      }
-      <SeparatorWrap />
-      <ActionBar />
-    </CheckListWrap>
-  );
+class CheckList extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    const { dataList, type, title, reset } = this.props;
+    return (
+      <CheckListWrap>
+        <h2>{title}</h2>
+        {
+          dataList.map((data) => {
+            switch (type) {
+              case 'counter':
+                return reset ? <CounterItem key={data} data={data} /> : <CounterItem key={data} data={data} value={0} />;
+              case 'check':
+                return reset ? <CheckItem key={data} data={data} /> : <CheckItem key={data} data={data} value={false} />;
+              default:
+                return reset ? <CheckItem key={data} data={data} /> : <CheckItem key={data} data={data} value={false} />;
+            }
+          })
+        }
+        <SeparatorWrap />
+        <ActionBar />
+      </CheckListWrap>
+    );
+  }
 }
 
 CheckList.propTypes = {
   dataList: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  reset: PropTypes.bool,
 };
 
 export default CheckList;

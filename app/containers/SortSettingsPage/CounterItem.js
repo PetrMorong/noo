@@ -46,6 +46,11 @@ class CounterItem extends React.Component { // eslint-disable-line react/prefer-
     };
   }
 
+  componentWillReceiveProps() {
+    const { value } = this.props;
+    this.setState({ count: value });
+  }
+
   onIncClick = () => {
     const { count } = this.state;
     this.setState({ count: count + 1 });
@@ -73,6 +78,7 @@ class CounterItem extends React.Component { // eslint-disable-line react/prefer-
 
 CounterItem.propTypes = {
   data: PropTypes.string.isRequired,
+  value: PropTypes.number,
 };
 
 export default CounterItem;
