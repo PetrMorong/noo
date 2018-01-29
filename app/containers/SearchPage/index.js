@@ -6,6 +6,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import 'react-select/dist/react-select.css';
 import Select from 'react-select';
@@ -180,9 +181,11 @@ export default class SearchPage extends React.Component { // eslint-disable-line
           <SearchButton>
             AMENITIES
           </SearchButton>
-          <SearchButton style={{ marginLeft: 90 }}>
-            SORT
-          </SearchButton>
+          <Link to="/sort-settings">
+            <SearchButton style={{ marginLeft: 90 }}>
+              SORT
+            </SearchButton>
+          </Link>
         </SortBarWrap>
         <SearchBarWrap>
           <Select
