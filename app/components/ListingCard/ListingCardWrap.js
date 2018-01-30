@@ -10,6 +10,7 @@ export default styled(Link)`
   position: relative;
   text-decoration: none;
   padding-bottom: 20px;
+  max-width: ${(props) => props.maxWidth ? `${props.maxWidth}` : 'auto'}px;
 
   @media(max-width: 850px) {
     width: calc(100% - 20px);
