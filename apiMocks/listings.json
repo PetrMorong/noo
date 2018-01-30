@@ -28,7 +28,7 @@ Parametres:
 }
 Response:
 {
-  "result": bool
+  "result": "bool"
 }
 
 PUT api/listings/edit - edit a listing
@@ -61,7 +61,7 @@ Parametres:
 }
 Response:
 {
-  "result": bool
+  "result": "bool
 }
 
 DELETE api/listings/delete - delete a listing
@@ -71,7 +71,7 @@ Parametres:
 }
 Response:
 {
-  "result": bool
+  "result": "bool
 }
 
 POST api/listings - get paginated list of listings
@@ -86,5 +86,5 @@ Parametres:
 }
 Response:
 {
-  "result": bool
+  "result": "bool
 }
