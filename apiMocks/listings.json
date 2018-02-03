@@ -1,0 +1,90 @@
+POST api/listings/create - create a listing
+Parametres:
+{
+  "userId": "string (required)",
+  "status": "string (required)",
+  "propertyType": "string (required)",
+  "bedrooms": "string (required)",
+  "bathrooms": "string (required)",
+  "propertySize": "integer",
+  "address": {
+    "location": "string (required)",
+    "gpsCoordinates": "integer (required)"
+  },
+  "amenities": [
+    "array of strings"
+  ],
+  "title": "string (required) max 49 chars",
+  "description": "string (required)  max 360 chars",
+  "primaryImage": "string (required) url of the image",
+  "images": [
+    "array of string urls"
+  ],
+  "propertyMoveInDate": "string (required)",
+  "leaseDuration": "string (required)",
+  "price": "string (required)",
+  "currency": "string (required)",
+  "depositPolicy": "integer"
+}
+Response:
+{
+  "result": "bool"
+}
+
+PUT api/listings/edit - edit a listing
+Parametres:
+{
+  "userId": "string (required)",
+  "status": "string (required)",
+  "propertyType": "string (required)",
+  "bedrooms": "string (required)",
+  "bathrooms": "string (required)",
+  "propertySize": "integer",
+  "address": {
+    "location": "string (required)",
+    "gpsCoordinates": "integer (required)"
+  },
+  "amenities": [
+    "array of strings"
+  ],
+  "title": "string (required) max 49 chars",
+  "description": "string (required)  max 360 chars",
+  "primaryImage": "string (required) url of the image",
+  "images": [
+    "array of string urls"
+  ],
+  "propertyMoveInDate": "string (required)",
+  "leaseDuration": "string (required)",
+  "price": "string (required)",
+  "currency": "string (required)",
+  "depositPolicy": "integer"
+}
+Response:
+{
+  "result": "bool
+}
+
+DELETE api/listings/delete - delete a listing
+Parametres:
+{
+  "listingId": "string (required)",
+}
+Response:
+{
+  "result": "bool
+}
+
+POST api/listings - get paginated list of listings
+Parametres:
+{
+  "location": "string",
+  TODO filters
+  "page": {
+    "size": "string",
+    "offset": "string"
+  }
+}
+Response:
+{
+  "result": "bool
+}

@@ -1,0 +1,77 @@
+POST api/users/authenticate - authenticate the user
+Parametres:
+{
+  "login": "string (required)",
+  "password": "string (required)"
+}
+Response:
+{
+  "id": "string",
+  "email": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "company": "string",
+  "picture": "string",
+  "pictureThumbnail": "string",
+  "phoneNumber": {
+    "countryCode": "string",
+    "number": "string"
+  },
+  "phoneVerified": "bool",
+  "emailVerified": "bool",
+  "identityVerified": "bool",
+  "payeeMethod": "bool",
+  "paymentMethod": "bool"
+}
+
+GET api/users - check if user already exists with given login
+Parametres:
+{
+  "login": "string (required)"
+}
+Response:
+{
+  "used": "bool"
+}
+
+PUT api/users/password - modify password of a user
+Parametres:
+{
+  "newPassword": "string (required)",
+  "oldPassword": "string (required)"
+}
+Response:
+{
+  "result": "bool"
+}
+
+GET api/users/password/reset - send email with a link to change password screen
+Parametres:
+{
+  "email": "string (required)",
+}
+Response:
+{
+  "result": "bool"
+}
+
+POST api/users/phoneVerifacation/send - send phone verification code
+Parametres:
+{
+  "phoneNumber": "string (required)",
+}
+Response:
+{
+  "result": "bool"
+}
+
+PUT api/users/phoneVerification/confirm - confirm phone verification
+Parametres:
+{
+  "code": "string (required)",
+  "phoneNumber": "string (required)"
+}
+Response:
+{
+  "result": "bool"
+}
