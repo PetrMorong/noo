@@ -48,7 +48,7 @@ export default class ListingDetailPage extends React.Component { // eslint-disab
               <ListingDetailPriceCard />
             </ListingDetailBodyWrap>
           </ListingDetailBodyContainer>
-          <ListingDetailMap />
+          <ListingDetailMap title="The neighborhoood" />
         </ListingDetailPageWrap>
       </div>
     );
