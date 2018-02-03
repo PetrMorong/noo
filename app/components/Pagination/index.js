@@ -32,9 +32,7 @@ const PaginationWrap = styled.div`
   }
 `;
 
-function Pagination({
-   pageCount,
-   handlePageClick }) {
+function Pagination({ pageCount, handlePageClick }) {
   return (
     <PaginationWrap>
       <ReactPaginate

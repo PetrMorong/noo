@@ -42,3 +42,8 @@ export const HeaderFlatButtonWrap = styled.div`
     display: none;
   }
 `;
+export const Flex = styled.div`
+  display: flex;
+  width: ${(props) => props.location === '/activity' ? '100%' : 'auto'};
+  justify-content: flex-end;
+`;

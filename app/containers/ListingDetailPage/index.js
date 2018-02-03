@@ -2,10 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
-import ListingDetailHeader from './ListingDetailHeader';
-import ListingDetailDescription from './ListingDetailDescription';
-import ListingDetailPriceCard from './ListingDetailPriceCard';
-import ListingDetailMap from './ListingDetailMap';
+import ListingDetailHeader from './components/ListingDetailHeader/index';
+import ListingDetailDescription from './components/ListingDetailDescription/index';
+import ListingDetailPriceCard from './components/ListingDetailPriceCard/index';
+import ListingDetailMap from './components/ListingDetailMap';
 
 const ListingDetailPageWrap = styled.div`
   width: 100%;
