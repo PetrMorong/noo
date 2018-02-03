@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
+import SolidFavoriteIcon from 'material-ui/svg-icons/action/favorite';
 
 import ListingCardWrap from './ListingCardWrap';
 
-function ListingCard({ muiTheme }) {
+function ListingCard({ muiTheme, maxWidth, isFavorite }) {
   const Img = styled.img`
     width: 100%;
     object-fit: cover
@@ -47,8 +48,17 @@ function ListingCard({ muiTheme }) {
     top: 10px;
   `;
 
+  const BidCount = styled.span`
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: ${muiTheme.palette.primary1Color};
+    font-size: 14px;
+    font-weight: 500;
+  `;
+
   return (
-    <ListingCardWrap to="/listing-detail" >
+    <ListingCardWrap to="/listing-detail" maxWidth={maxWidth} >
       <Img src="https://s-ec.bstatic.com/images/hotel/max1024x768/360/36022959.jpg" alt="img" />
       <FirstLineWrap>
         <AmenitiesWrap>
@@ -70,14 +80,21 @@ function ListingCard({ muiTheme }) {
         23 rue de Exposition Paris
       </Address>
       <Favorite>
-        <FavoriteIcon style={{ color: 'white' }} />
+        { isFavorite ?
+          <SolidFavoriteIcon style={{ color: '#f44336' }} /> :
+          <FavoriteIcon style={{ color: 'white' }} /> }
       </Favorite>
+      <BidCount>
+        999 Bids
+      </BidCount>
     </ListingCardWrap>
   );
 }
 
 ListingCard.propTypes = {
   muiTheme: PropTypes.object,
+  maxWidth: PropTypes.number,
+  isFavorite: PropTypes.bool,
 };
 
 export default muiThemeable()(ListingCard);

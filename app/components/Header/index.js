@@ -10,19 +10,19 @@ import reducer from 'containers/App/reducer';
 import { Link } from 'react-router-dom';
 
 import injectReducer from 'utils/injectReducer';
-import HeaderWrap from './HeaderWrap';
-import HeaderBurger from './HeaderBurger';
-import Notification from './Notification';
-import Logo from './Logo';
-import HeaderFlatButton from './HeaderFlatButton';
-import SearchBar from './SearchBar';
-import HeaderProfile from './HeaderProfile';
+import HeaderWrap from './components/HeaderWrap';
+import HeaderBurger from './components/HeaderBurger';
+import Notification from './components/Notification';
+import Logo from './components/Logo';
+import HeaderFlatButton from './components/HeaderFlatButton';
+import SearchBar from './components/SearchBar';
+import HeaderProfile from './components/HeaderProfile';
 import { HeaderCreateListingWrap, HeaderFlatButtonWrap, Flex } from './Header.styles';
 
 function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location }) {
   return (
     <HeaderWrap location={location}>
-      <HeaderBurger onClick={handleBurgerClick} hasAlert={1} location={location} />
+      <HeaderBurger onClick={handleBurgerClick} hasAlert location={location} />
       <Logo location={location} />
       {location !== '/activity' &&
         <SearchBar />
