@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const LogoWrapper = styled.div`
   margin-left: 15px;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 22px;
   margin-right: 80px;
   color: ${(props) => props.location === '/activity' ? 'white' : 'rgba(0,0,0,.65)'};
   width: ${(props) => props.location === '/activity' ? '250px' : 'auto'};
@@ -21,9 +21,8 @@ const LogoWrapper = styled.div`
   }
 
   @media(max-width: 600px) {
-    width: 100%;
+    color: rgba(0,0,0,.65);
     display: flex;
-    justify-content: center;
     margin-right: 15px;
   }
 `;
@@ -32,7 +31,7 @@ function Logo({ location }) {
   return (
     <LogoWrapper location={location}>
       <p>
-        Nookpad {location === '/activity' && <span>Activity</span> }
+        Nookpad
       </p>
     </LogoWrapper>
   );

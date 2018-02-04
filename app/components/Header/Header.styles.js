@@ -15,6 +15,17 @@ export const HeaderProfileAccount = styled.div`
     min-width: 15px;
   }
 `;
+export const Calendar = styled.div`
+  display: none;
+  @media(max-width: 1000px) {
+    display: block;
+    position: absolute;
+    right: 15px;
+  }
+  svg {
+    fill: rgba(0,0,0,.65) !important;
+  }
+`;
 export const HeaderProfileUsername = styled.div`
   font-size: 15px;
   font-weight: 500;

@@ -11,4 +11,12 @@ export default styled.div`
   position: fixed;
   top: -1px;
   z-index: 54;
+  @media(max-width: 1000px) {
+    background: white;
+    z-index: 80;
+    svg {
+      color: rgba(0,0,0,.7) !important;
+      fill: rgba(0,0,0,.7) !important;
+    }
+  }
 `;

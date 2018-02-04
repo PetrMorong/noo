@@ -8,6 +8,7 @@ import { makeSelectUser } from 'containers/App/selectors';
 import { makeSelectPathname } from 'components/Sidemenu/Sidemenu.selectors';
 import reducer from 'containers/App/reducer';
 import { Link } from 'react-router-dom';
+import CalendarIcon from 'material-ui/svg-icons/action/date-range';
 
 import injectReducer from 'utils/injectReducer';
 import HeaderWrap from './components/HeaderWrap';
@@ -17,7 +18,7 @@ import Logo from './components/Logo';
 import HeaderFlatButton from './components/HeaderFlatButton';
 import SearchBar from './components/SearchBar';
 import HeaderProfile from './components/HeaderProfile';
-import { HeaderCreateListingWrap, HeaderFlatButtonWrap, Flex } from './Header.styles';
+import { HeaderCreateListingWrap, HeaderFlatButtonWrap, Flex, Calendar } from './Header.styles';
 
 function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location }) {
   return (
@@ -35,6 +36,11 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location 
             style={{ minWidth: '150px' }}
           />
         </HeaderCreateListingWrap>
+      }
+      {location === '/activity' &&
+        <Calendar>
+          <CalendarIcon />
+        </Calendar>
       }
       {user ?
         <Flex location={location}>

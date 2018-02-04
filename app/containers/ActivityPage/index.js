@@ -1,14 +1,9 @@
-/*
- * FeaturePage
- *
- * List all the features
- */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import ActivitySidemenu from './components/ActivitySidemenu';
-import ActivityChat from './components/ActivityChat';
+import ActivityChat from './components/ActivityChat/index';
 import ActivityDefaultState from './components/ActivityDefaultState';
 
 const Container = styled.div`
@@ -28,9 +23,7 @@ const Shadow = styled.div`
   width: 100%;
   height: 100%;
   padding: 80px 20px 0 20px;
-
 `;
-
 export default class ActivityPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
