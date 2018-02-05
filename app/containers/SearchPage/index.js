@@ -1,28 +1,25 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps';
-import { Link } from 'react-router-dom';
-import 'react-select/dist/react-select.css';
-import Select from 'react-select';
+import { createStructuredSelector } from 'reselect';
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import ListingCard from 'components/ListingCard';
 import Pagination from 'components/Pagination';
+import PropTypes from 'prop-types';
+
+import reducer from './SearchPage.reducer';
+import saga from './SearchPage.saga';
+import { getListings } from './SearchPage.actions';
+import { makeSelectData } from './SearchPage.selectors';
 import {
   SearchPageWrap,
   ListingCardsWrap,
   SearchMapWrap,
-  SortBarWrap,
-  SearchButton,
-  SearchBarWrap,
   ListingWrap,
 } from './styles';
-
-const options = [
-{ label: '£ 2000 to £ 2200', value: 'price' },
-{ label: 'Amenities', value: 'amenities' },
-{ label: '2 Beds', value: 'bed2' },
-{ label: '2 Baths', value: 'bath2' },
-];
 
 const MyMapComponent = withScriptjs(withGoogleMap(() => (
   <GoogleMap
@@ -33,54 +30,21 @@ const MyMapComponent = withScriptjs(withGoogleMap(() => (
   </GoogleMap>
 )));
 
-export default class SearchPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedValue: null,
-    };
-  }
+class SearchPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
-  handleSelectChange = (value) => {
-    this.setState({ selectedValue: value });
+  componentWillMount() {
+    this.props.getListings();
   }
 
   render() {
-    const { selectedValue } = this.state;
+    const { data } = this.props;
+    console.log(data);
     return (
       <div>
         <Helmet>
           <title>Search TODO Translate</title>
           <meta name="description" content="Search page of Nookpad" />
         </Helmet>
-        <SortBarWrap>
-          <SearchButton>
-            TYPE
-          </SearchButton>
-          <SearchButton>
-            BED & BATH
-          </SearchButton>
-          <SearchButton>
-            PRICE
-          </SearchButton>
-          <SearchButton>
-            AMENITIES
-          </SearchButton>
-          <Link to="/sort-settings">
-            <SearchButton style={{ marginLeft: 90 }}>
-              SORT
-            </SearchButton>
-          </Link>
-        </SortBarWrap>
-        <SearchBarWrap>
-          <Select
-            name="search_selector"
-            multi
-            onChange={this.handleSelectChange}
-            options={options}
-            value={selectedValue}
-          />
-        </SearchBarWrap>
         <SearchPageWrap>
           <ListingWrap>
             <ListingCardsWrap>
@@ -108,3 +72,31 @@ export default class SearchPage extends React.Component { // eslint-disable-line
     );
   }
 }
+
+SearchPage.propTypes = {
+  data: PropTypes.object,
+  getListings: PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    getListings: () => dispatch(getListings()),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  data: makeSelectData(),
+  // loading: makeSelectListingsLoading(),
+  // error: makeSelectListingsError(),
+});
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+const withReducer = injectReducer({ key: 'searchPage', reducer });
+const withSaga = injectSaga({ key: 'searchPage', saga });
+
+export default compose(
+  withReducer,
+  withSaga,
+  withConnect,
+)(SearchPage);
