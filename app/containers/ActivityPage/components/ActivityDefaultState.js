@@ -7,7 +7,7 @@ import OfferIcon from 'material-ui/svg-icons/maps/local-offer';
 
 const Container = styled.div`
   width: 100%;
-  padding: 80px;
+  padding: 60px 15px 0px 60px;
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 `;
