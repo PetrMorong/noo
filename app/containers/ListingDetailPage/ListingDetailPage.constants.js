@@ -1,3 +1,15 @@
+export const GET_LISTING_DETAIL = 'ListingDetailPage/GET_LISTING_DETAIL';
+export const GET_LISTING_DETAIL_SUCCESS = 'ListingDetailPage/GET_LISTING_DETAIL_SUCCESS';
+export const GET_LISTING_DETAIL_ERROR = 'ListingDetailPage/GET_LISTING_DETAIL_ERROR';
+
+export const SUBMIT_SCHEDULE_VIEWING = 'ListingDetailPage/SUBMIT_SCHEDULE_VIEWING';
+export const SUBMIT_SCHEDULE_VIEWING_SUCCESS = 'ListingDetailPage/SUBMIT_SCHEDULE_VIEWING_SUCCESS';
+export const SUBMIT_SCHEDULE_VIEWING_ERROR = 'ListingDetailPage/SUBMIT_SCHEDULE_VIEWING_ERROR';
+
+export const TOGGLE_VIEWING_MOBILE = 'lisitingDetailPage/TOGGLE_VIEWING_MOBILE';
+export const TOGGLE_VIEWING_SUCCESS_DIALOG = 'lisitingDetailPage/TOGGLE_VIEWING_SUCCESS_DIALOG';
+export const TOGGLE_OFFER_MODAL = 'lisitingDetailPage/TOGGLE_OFFER_MODAL';
+
 export const LightboxTheme = {
   container: {
     background: 'rgba(0,0,0, 0.9)',

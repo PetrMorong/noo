@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps';
+// import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps';
 
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
@@ -17,7 +17,7 @@ const Wrap = styled.div`
 const Container = styled.div`;
   width: 800px;
 `;
-const Title = styled.h4`
+/* const Title = styled.h4`
   color: rgba(0,0,0,.9);
   margin-top: 0px;
   margin-bottom: 10px;
@@ -34,13 +34,13 @@ const MyMapComponent = withScriptjs(withGoogleMap(() => (
   >
     <Marker position={{ lat: 48.857530, lng: 2.303385 }} />
   </GoogleMap>
-)));
+))); */
 
-function ListingDetailMap({ title }) {
+function ListingDetailMap() {
   return (
     <Wrap>
       <Container>
-        <SmallWrap>
+        {/* <SmallWrap>
           <Title>{title}</Title>
           <MyMapComponent
             isMarkerShown
@@ -49,7 +49,7 @@ function ListingDetailMap({ title }) {
             containerElement={<div style={{ height: '400px' }} />}
             mapElement={<div style={{ height: '100%' }} />}
           />
-        </SmallWrap>
+        </SmallWrap> */ }
       </Container>
     </Wrap>
   );

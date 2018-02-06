@@ -1,0 +1,8 @@
+Translate all string to i18n
+Error handling, loading state on SearchPage
+Add offer count to the DB.json
+Fix google map on listing detail, format datepicker to 10.06.1888
+Fix console warnings
+Figure out wordings for notification and types
+Listing detail id not provided ... handle errors
+Validation on redux form doesnt work

@@ -32,7 +32,21 @@ const initialState = fromJS({
   },
 
   sideMenuOpen: false,
-  user: false,
+  user: {
+    id: 1,
+    email: 'email@email.com',
+    password: '12345',
+    firstName: 'Petr',
+    lastName: 'Morong',
+    company: 'Nookpad',
+    picture: 'https://www.caaspeakers.com/wp-content/uploads/sites/3/2012/12/VaynerchukG_headshot_web1-330x360.jpg',
+    phoneNumber: '+420737212314',
+    phoneVerified: true,
+    emailVerified: true,
+    identityVerified: true,
+    paymentMethod: 'String',
+    payeeMethod: 'string',
+  },
 });
 
 function appReducer(state = initialState, action) {

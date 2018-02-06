@@ -32,7 +32,8 @@ const Title = styled.div`
   border-bottom: 1px solid #eee;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 4px;
   justify-content: space-between;
   color: rgba(0,0,0,.6);
   font-weight: 600;

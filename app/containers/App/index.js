@@ -21,6 +21,7 @@ import ProfileSettingsPage from 'containers/ProfileSettingsPage/Loadable';
 import ActivityPage from 'containers/ActivityPage/Loadable';
 import Header from 'components/Header';
 import Sidemenu from 'components/Sidemenu';
+import Notifications from 'containers/Notifications';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -43,6 +44,7 @@ export default function App() {
       </Helmet>
       <Header />
       <Sidemenu />
+      <Notifications />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />

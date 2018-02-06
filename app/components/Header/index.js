@@ -7,8 +7,8 @@ import { toggleSideMenu, login, signOut } from 'containers/App/actions';
 import { makeSelectUser } from 'containers/App/selectors';
 import { makeSelectPathname } from 'components/Sidemenu/Sidemenu.selectors';
 import reducer from 'containers/App/reducer';
-import { Link } from 'react-router-dom';
 import CalendarIcon from 'material-ui/svg-icons/action/date-range';
+import { toggleNotifications } from 'containers/Notifications/Notifications.actions';
 
 import injectReducer from 'utils/injectReducer';
 import HeaderWrap from './components/HeaderWrap';
@@ -20,10 +20,14 @@ import SearchBar from './components/SearchBar';
 import HeaderProfile from './components/HeaderProfile';
 import { HeaderCreateListingWrap, HeaderFlatButtonWrap, Flex, Calendar } from './Header.styles';
 
-function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location }) {
+function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location, handleToggleNotifications }) {
   return (
     <HeaderWrap location={location}>
-      <HeaderBurger onClick={handleBurgerClick} hasAlert location={location} />
+      <HeaderBurger
+        onClick={handleBurgerClick}
+        hasAlert
+        location={location}
+      />
       <Logo location={location} />
       {location !== '/activity' &&
         <SearchBar />
@@ -44,10 +48,15 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location 
       }
       {user ?
         <Flex location={location}>
-          <Link to="/activity">
-            <Notification hasAlert={1} location={location} />
-          </Link>
-          <HeaderProfile onSignOut={handleSignOut} location={location} />
+          <Notification
+            hasAlert={1}
+            location={location}
+            onClick={handleToggleNotifications}
+          />
+          <HeaderProfile
+            onSignOut={handleSignOut}
+            location={location}
+          />
         </Flex>
         :
         <HeaderFlatButtonWrap>
@@ -68,6 +77,7 @@ Header.propTypes = {
   handleSignOut: PropTypes.func,
   user: PropTypes.bool,
   location: PropTypes.string,
+  handleToggleNotifications: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -75,6 +85,7 @@ export function mapDispatchToProps(dispatch) {
     handleBurgerClick: () => dispatch(toggleSideMenu()),
     handleLogin: () => dispatch(login()),
     handleSignOut: () => dispatch(signOut()),
+    handleToggleNotifications: () => dispatch(toggleNotifications()),
   };
 }
 
