@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { currencies } from 'constants/backend-constants';
 
 import TimePicker from 'material-ui/TimePicker';
 import DatePicker from 'material-ui/DatePicker';
@@ -29,7 +30,7 @@ class ListingDetailPriceCard extends React.Component {
   }
 
   render() {
-    const { muiTheme } = this.props;
+    const { muiTheme, data } = this.props;
     const { expandMobile } = this.state;
     return (
       <Wrap expandMobile={expandMobile}>
@@ -40,7 +41,7 @@ class ListingDetailPriceCard extends React.Component {
             </IconButton>
           </IconButtonWrap>
           <Price expandMobile={expandMobile}>
-            ‎<span><strong>£99,999</strong> per month</span> <br /> <p>35 offers</p>
+            ‎<span><strong>{data.price} {currencies[data.currency]}</strong> per month</span> <br /> <p>35 offers</p>
           </Price>
 
           <H5 expandMobile={expandMobile}>Select date and time</H5>
@@ -90,6 +91,7 @@ class ListingDetailPriceCard extends React.Component {
 
 ListingDetailPriceCard.propTypes = {
   muiTheme: PropTypes.object,
+  data: PropTypes.object,
 };
 
 export default muiThemeable()(ListingDetailPriceCard);

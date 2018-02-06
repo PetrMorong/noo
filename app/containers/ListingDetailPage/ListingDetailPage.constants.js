@@ -1,3 +1,7 @@
+export const GET_LISTING_DETAIL = 'ListingDetailPage/GET_LISTING_DETAIL';
+export const GET_LISTING_DETAIL_SUCCESS = 'ListingDetailPage/GET_LISTING_DETAIL_SUCCESS';
+export const GET_LISTING_DETAIL_ERROR = 'ListingDetailPage/GET_LISTING_DETAIL_ERROR';
+
 export const LightboxTheme = {
   container: {
     background: 'rgba(0,0,0, 0.9)',

@@ -38,17 +38,16 @@ class ListingDetailHeader extends React.Component {
   }
 
   render() {
-    const { expandMobile } = this.props;
+    const { expandMobile, data } = this.props;
     return (
       <ListingDetailHeaderWrap>
         <CoverBorder />
-        <Img src="https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg" />
+        <Img src={data.primaryImage} />
         <LightboxWrap>
           <Lightbox
-            images={[
-              { src: 'https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg', width: 4, height: 3 },
-              { src: 'http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg', width: 4, height: 3 },
-            ]}
+            images={data.images.map((item) => ({
+              src: item,
+            }))}
             isOpen={this.state.lightboxIsOpen}
             onClickPrev={this.gotoPrevious}
             onClickNext={this.gotoNext}
@@ -79,6 +78,7 @@ class ListingDetailHeader extends React.Component {
 
 ListingDetailHeader.propTypes = {
   expandMobile: PropTypes.bool,
+  data: PropTypes.object,
 };
 
 export default ListingDetailHeader;

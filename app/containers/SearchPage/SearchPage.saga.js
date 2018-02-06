@@ -6,9 +6,7 @@ import { apiUrl } from 'config/index';
 import { GET_LISTINGS } from './SearchPage.constants';
 import { listingsLoaded, listingsError } from './SearchPage.actions';
 
-export function* lol() {
-  console.log(listingsLoaded, listingsError);
-
+export function* GetListings() {
   const requestURL = `${apiUrl}/listings`;
   try {
     const listings = yield call(request, requestURL);
@@ -19,5 +17,5 @@ export function* lol() {
 }
 
 export default function* getListings() {
-  yield takeLatest(GET_LISTINGS, lol);
+  yield takeLatest(GET_LISTINGS, GetListings);
 }

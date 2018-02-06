@@ -1,0 +1,5 @@
+Translate all string to i18n
+Error handling, loading state on SearchPage
+Add offer count to the DB.json
+Fix google map on listing detail
+Fix console warnings
