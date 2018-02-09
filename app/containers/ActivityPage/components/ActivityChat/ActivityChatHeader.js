@@ -76,7 +76,7 @@ const Price = styled.span`
   font-size: 20px;
   font-weight: 600;
 `;
-export default function ActivityChatHeader({ data, mode = false }) {
+export default function ActivityChatHeader({ data, mode = false, backClick }) {
   return (
     <Container mode={mode}>
       <Shadow mode={mode} />
@@ -84,21 +84,23 @@ export default function ActivityChatHeader({ data, mode = false }) {
         <IconButton
           mode={mode}
           iconStyle={{ fill: !mode ? 'rgba(0,0,0,.7)' : 'white' }}
-          onClick={data.backClick}
+          onClick={backClick}
         >
           <BackIcon />
         </IconButton>
       </IconButtonWrap>
-      <Img src={data.img} alt="x" mode={mode} />
+      <Img src={mode === 'advanced' ? data.primaryImage : data.user.thumbnail} alt="x" mode={mode} />
       {mode === 'advanced' &&
         <Description>
-          <b>{data.label}</b>
-          <span>{data.address}</span>
-          <span>{data.movingDate} - {data.minimumDuration}</span>
+          <b>{data.title}</b>
+          <span>{data.address.location}</span>
+          <span>{data.propertyMoveInDate} / {`${data.leaseDuration} months`}</span>
           <Price>{data.price} {data.currency} </Price>
         </Description>
       }
-      {!mode && data.label}
+      {!mode &&
+        <span>{data.user.firstName} {data.user.lastName}</span>
+      }
     </Container>
   );
 }
@@ -106,4 +108,5 @@ export default function ActivityChatHeader({ data, mode = false }) {
 ActivityChatHeader.propTypes = {
   data: PropTypes.object,
   mode: PropTypes.string,
+  backClick: PropTypes.backClick,
 };

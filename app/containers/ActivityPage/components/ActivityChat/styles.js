@@ -31,7 +31,7 @@ export const OffersWrap = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
-    }
+  }
 `;
 export const Wrap = styled.div`
   opacity: .95;
@@ -98,3 +98,18 @@ export const ChatRowInfoWrap = styled.div`
   color: rgba(0,0,0,.5);
   font-size: 14px;
 `;
+
+export const TabsInkBarStyle = { background: 'rgba(0,0,0,.3)' };
+export const TabsContentContainerStyle = { height: 'calc( 100% - 50px )' };
+export const Height100 = { height: '100%' };
+export const TabsItemContainerStyle = {
+  background: 'white',
+  boxShadow: '0 1px 8px rgba(0,0,0,.1)',
+  borderBottom: '1px solid rgba(0,0,0,.1)',
+  color: 'rgba(0,0,0,.7)',
+  borderRadius: '2px',
+};
+export const TabButtonStyle = {
+  color: 'rgba(0,0,0,.7)',
+  textTransform: 'none',
+};

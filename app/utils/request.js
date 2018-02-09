@@ -43,7 +43,7 @@ export default function request(url, method, dataToSend) {
       'Content-Type': 'application/json',
     },
   };
-  if (method === 'POST') {
+  if (method === 'POST' || method === 'PUT') {
     options.data = JSON.stringify(dataToSend);
   }
   return fetch(url, options)

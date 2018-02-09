@@ -7,6 +7,7 @@ import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import { SUBMIT_SCHEDULE_VIEWING_SUCCESS } from 'containers/ListingDetailPage/ListingDetailPage.constants';
+import { SUBMIT_COUNTER_OFFER_SUCCESS } from 'containers/ActivityPage/ActivityPage.constants';
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
@@ -52,6 +53,14 @@ export default function createReducer(injectedReducers) {
       scheduleViewingListing: (state, action) => { // is name of form given to reduxForm()
         switch (action.type) {
           case SUBMIT_SCHEDULE_VIEWING_SUCCESS:
+            return undefined;       // <--- blow away form data
+          default:
+            return state;
+        }
+      },
+      counterOfferForm: (state, action) => { // is name of form given to reduxForm()
+        switch (action.type) {
+          case SUBMIT_COUNTER_OFFER_SUCCESS:
             return undefined;       // <--- blow away form data
           default:
             return state;

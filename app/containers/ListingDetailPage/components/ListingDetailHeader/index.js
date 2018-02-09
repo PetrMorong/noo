@@ -8,7 +8,7 @@ import ShareIcon from 'material-ui/svg-icons/social/share';
 import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
 import IconButton from 'material-ui/IconButton';
 
-import { LightboxTheme } from '../../ListingDetailPage.constants';
+import { LightboxTheme } from '../../styles';
 import { ListingDetailHeaderWrap, Img, LightboxWrap, ShowPhotosWrap, ShareFavoriteWeb, ShareFavoriteMobile, CoverBorder } from './styles';
 
 class ListingDetailHeader extends React.Component {

@@ -1,36 +1,10 @@
-/*
- * AppReducer
- *
- * The reducer takes care of our data. Using actions, we can change our
- * application state.
- * To add a new action, add it to the switch statement in the reducer function
- *
- * Example:
- * case YOUR_ACTION_CONSTANT:
- *   return state.set('yourStateVariable', true);
- */
-
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-import {
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS,
-  LOAD_REPOS_ERROR,
-  SIDE_MENU_TOGGLE,
-  USER_LOGIN,
-  USER_SIGN_OUT,
-} from './constants';
+import * as types from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
-  loading: false,
-  error: false,
-  currentUser: false,
-  userData: {
-    repositories: false,
-  },
-
   sideMenuOpen: false,
   user: {
     id: 1,
@@ -51,30 +25,16 @@ const initialState = fromJS({
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_REPOS:
-      return state
-        .set('loading', true)
-        .set('error', false)
-        .setIn(['userData', 'repositories'], false);
-    case LOAD_REPOS_SUCCESS:
-      return state
-        .setIn(['userData', 'repositories'], action.repos)
-        .set('loading', false)
-        .set('currentUser', action.username);
-    case LOAD_REPOS_ERROR:
-      return state
-        .set('error', action.error)
-        .set('loading', false);
-    case SIDE_MENU_TOGGLE:
+    case types.SIDE_MENU_TOGGLE:
       return state
         .set('sideMenuOpen', !state.get('sideMenuOpen'));
     case LOCATION_CHANGE:
       return state
         .set('sideMenuOpen', false);
-    case USER_LOGIN:
+    case types.USER_LOGIN:
       return state
         .set('user', true);
-    case USER_SIGN_OUT:
+    case types.USER_SIGN_OUT:
       return state
         .set('user', false);
     default:

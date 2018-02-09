@@ -1,0 +1,2 @@
+export const ADD_EVENT_SNACKBAR = 'SnackBar/ADD_EVENT_SNACKBAR';
+export const CLEAR_SNACKBAR = 'SnackBar/CLEAR_SNACKBAR';

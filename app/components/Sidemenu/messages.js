@@ -14,10 +14,6 @@ export default defineMessages({
     id: 'nookpad.components.Header.activity',
     defaultMessage: 'Activity',
   },
-  features: {
-    id: 'nookpad.components.Header.features',
-    defaultMessage: 'Features',
-  },
   findProperty: {
     id: 'nookpad.components.Header.findProperty',
     defaultMessage: 'Find a property',

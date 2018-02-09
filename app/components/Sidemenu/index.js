@@ -13,6 +13,7 @@ import SignOutIcon from 'material-ui/svg-icons/action/exit-to-app';
 import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import { toggleSideMenu } from 'containers/App/actions';
 import muiThemeable from 'material-ui/styles/muiThemeable';
+import { makeSelectUser } from 'containers/App/selectors';
 
 import AccountWrap from './components/AccountWrap';
 import ProfileWrap from './components/ProfileWrap';
@@ -25,7 +26,7 @@ import messages from './messages';
 import { makeSelectSideMenuOpen, makeSelectPathname } from './Sidemenu.selectors';
 import { HeaderProfileUsername, HeaderProfileEmail } from '../Header/Header.styles';
 
-function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme }) {
+function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme, logedIn }) {
   return (
     <div>
       <SidemenuWrap opened={sideMenuOpen}>
@@ -74,14 +75,24 @@ function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme }) {
           icon={<FavoriteIcon style={{ color: pathname === '/favorite-properties' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
           to="/favorite-properties"
         />
-        <ProfileWrap>
+        {logedIn &&
           <SidemenuLink
-            message={messages.signOut}
+            message={messages.activity}
             currentPathName={pathname}
-            icon={<SignOutIcon style={{ color: muiTheme.palette.textColor }} />}
-            to="/favorite-properties"
+            icon={<NotifyIcon style={{ color: pathname === '/activity' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
+            to="/activity"
           />
-        </ProfileWrap>
+        }
+        {logedIn &&
+          <ProfileWrap>
+            <SidemenuLink
+              message={messages.signOut}
+              currentPathName={pathname}
+              icon={<SignOutIcon style={{ color: muiTheme.palette.textColor }} />}
+              to="/home"
+            />
+          </ProfileWrap>
+        }
       </SidemenuWrap>
       <SidemenuOverlay opened={sideMenuOpen} onClick={handleBurgerClick} />
     </div>
@@ -93,6 +104,7 @@ Sidemenu.propTypes = {
   sideMenuOpen: PropTypes.bool,
   pathname: PropTypes.string,
   muiTheme: PropTypes.object,
+  logedIn: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -104,6 +116,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   sideMenuOpen: makeSelectSideMenuOpen(),
   pathname: makeSelectPathname(),
+  logedIn: makeSelectUser(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

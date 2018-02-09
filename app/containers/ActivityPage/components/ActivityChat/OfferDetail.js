@@ -5,12 +5,26 @@ import IconButton from 'material-ui/IconButton';
 import FileIcon from 'material-ui/svg-icons/editor/insert-drive-file';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import _ from 'lodash';
+
+import {
+  toggleCounterOfferModal,
+  respondOffer,
+} from '../../ActivityPage.actions';
+import { makeSelectOpenCounterOfferModal } from '../../ActivityPage.selectors';
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px 20px;
   position: relative;
+  overflow-y: overlay;
+  padding-bottom: 55px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Col = styled.div`
   width: 100%;
@@ -82,77 +96,118 @@ const FixedActions = styled.div`
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  bottom: 10px;
-  right: 25px;
+  bottom: 0px;
+  padding: 10px 20px;
+  right: 0px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 8px;
 `;
-export default function OfferDetail({ data }) {
+
+// TODO score colors base on the numbers
+function OfferDetail({ data, handleToggleCounterOfferModal, handleRespondOffer }) {
   return (
-    <Container data={data}>
-      <Col>
-        <Row>
-          <span className="first">Price:</span>
-          <span className="plus"><b>7500 $</b></span>
-        </Row>
-        <Row>
-          <span className="first">Move-in date:</span>
-          <span><b>1.5.2018</b></span>
-        </Row>
-        <Row>
-          <span className="first">Lease duration:</span>
-          <span><b>24 months</b></span>
-        </Row>
-      </Col>
-      <Col>
-        <div className="v2">
-          <div className="v3 x2">
-            <img src="https://scontent-cdg2-1.cdninstagram.com/vp/bc19f2ba8645cdd18c4491e2995e19c0/5B191A24/t51.2885-19/s150x150/26863827_140525683292884_1210760819864764416_n.jpg" alt="" />
+    <div style={{ height: '100%' }}>
+      <Container>
+        <Col>
+          <Row>
+            <span className="first">Price:</span>
+            <span className="plus"><b>{data.price} $</b></span>
+          </Row>
+          <Row>
+            <span className="first">Move-in date:</span>
+            <span><b>{data.moveInDate}</b></span>
+          </Row>
+          <Row>
+            <span className="first">Lease duration:</span>
+            <span><b>{data.leaseDuration} months</b></span>
+          </Row>
+        </Col>
+        <Col>
+          <div className="v2">
+            <div className="v3 x2">
+              <img src={data.user.thumbnail} alt="" />
+            </div>
+            <div className="v3">
+              <b>{data.user.firstName} {data.user.lastName}</b>
+              <div>Tenant</div>
+            </div>
+            <Score>{data.score}</Score>
+            <IconButton className="file" tooltip="Proof of income">
+              <FileIcon />
+            </IconButton>
           </div>
-          <div className="v3">
-            <b>Amanda Thompson</b>
-            <div>Tenant</div>
-          </div>
-          <Score>9.0</Score>
-          <IconButton className="file" tooltip="Proof of income">
-            <FileIcon />
-          </IconButton>
-        </div>
-      </Col>
-      <Col>
-        <div className="v2">
-          <div className="v3 x2">
-            <img src="https://vignette.wikia.nocookie.net/villains/images/2/2b/Jerrythemouse.jpg/revision/latest?cb=20170721111021" alt="" />
-          </div>
-          <div className="v3">
-            <b>Jerry Fletcher</b>
-            <div>Roomate</div>
-          </div>
-          <Score>7.6</Score>
-          <IconButton className="file" tooltip="Proof of income">
-            <FileIcon />
-          </IconButton>
-        </div>
-      </Col>
-      <Col>
-        <div className="v2">
-          <div className="v3 x2">
-            <img src="http://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/38/2016/01/19182437/GETTY_11915_Dtrumpspeech-200x200.jpg" alt="" />
-          </div>
-          <div className="v3">
-            <b>Donald Trump</b>
-            <div>Garant</div>
-          </div>
-          <Score>3.2</Score>
-        </div>
-      </Col>
+        </Col>
+        {data.roomates.map((item) => (
+          <Col key={item.id}>
+            <div className="v2">
+              <div className="v3 x2">
+                <img src={item.thumbnail} alt="" />
+              </div>
+              <div className="v3">
+                <b>{item.firstName} {item.lastName}</b>
+                <div>Roomate</div>
+              </div>
+              <Score>{item.score}</Score>
+              <IconButton className="file" tooltip="Proof of income">
+                <FileIcon />
+              </IconButton>
+            </div>
+          </Col>
+        ))}
+        {data.garantors.map((item) => (
+          <Col key={item.id}>
+            <div className="v2">
+              <div className="v3 x2">
+                <img src={item.thumbnail} alt="" />
+              </div>
+              <div className="v3">
+                <b>{item.firstName} {item.lastName}</b>
+                <div>Garantor</div>
+              </div>
+              <Score>{item.score}</Score>
+              <IconButton className="file" tooltip="Proof of income">
+                <FileIcon />
+              </IconButton>
+            </div>
+          </Col>
+        ))}
+      </Container>
       <FixedActions>
-        <FlatButton primary label="Counter" />
-        <FlatButton primary label="Refuse" />
-        <RaisedButton primary label="Accept" />
+        <FlatButton
+          primary
+          label="Counter"
+          onClick={_.partial(handleToggleCounterOfferModal, data)}
+        />
+        <FlatButton
+          primary
+          label="Refuse"
+          onClick={_.partial(handleRespondOffer, 'refuse')}
+        />
+        <RaisedButton
+          primary
+          label="Accept"
+          onClick={_.partial(handleRespondOffer, 'accept')}
+        />
       </FixedActions>
-    </Container>
+    </div>
   );
 }
 
 OfferDetail.propTypes = {
   data: PropTypes.object,
+  handleToggleCounterOfferModal: PropTypes.func,
+  handleRespondOffer: PropTypes.func,
 };
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    handleToggleCounterOfferModal: (data) => dispatch(toggleCounterOfferModal(data)),
+    handleRespondOffer: (type) => dispatch(respondOffer(type)),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  openCounterOfferModal: makeSelectOpenCounterOfferModal(),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OfferDetail);
