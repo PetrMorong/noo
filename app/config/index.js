@@ -1,5 +1,7 @@
 export const apiUrl = 'http://localhost:4000';
 
+export const maxFileSize = 1024 * 1024 * 2; // 2Mb
+
 export const defaultViewingTimes = [
   '08:00',
   '08:20',

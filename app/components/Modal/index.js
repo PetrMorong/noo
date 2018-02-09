@@ -12,19 +12,20 @@ const Container = styled.div`
   top: 0;
   left: 0;
   height: 100%;
-  z-index: ${(props) => props.show ? '99' : '-99'};
+  display: ${(props) => props.show ? 'flex' : 'none'};
   opacity: ${(props) => props.show ? '1' : '0'};
   transition: 250ms;
-  display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
   border-radius: 3px;
+  z-index: 255;
 `;
 const Wrap = styled.div`
   width: 350px;
   height: 300px;
   background: white;
+  margin-top: 60px;
 `;
 const Title = styled.div`
   width: 100%;
@@ -42,8 +43,13 @@ const Title = styled.div`
     margin-left: 10px;
   }
 `;
+const Body = styled.div`
+  padding: 20px;
+  max-height: 70vh;
+  overflow-x: overlay;
+`;
 
-export default function SearchPage({ title, icon, show, onClose }) {
+export default function SearchPage({ title, icon, show, onClose, children, style }) {
   return (
     <Container
       show={show}
@@ -51,6 +57,7 @@ export default function SearchPage({ title, icon, show, onClose }) {
     >
       <Wrap
         onClick={(e) => e.stopPropagation()}
+        style={{ ...style }}
       >
         <Title>
           <div>
@@ -63,6 +70,9 @@ export default function SearchPage({ title, icon, show, onClose }) {
             <ExitIcon />
           </IconButton>
         </Title>
+        <Body>
+          {children}
+        </Body>
       </Wrap>
     </Container>
   );
@@ -73,4 +83,6 @@ SearchPage.propTypes = {
   icon: PropTypes.any,
   show: PropTypes.bool,
   onClose: PropTypes.function,
+  children: PropTypes.element,
+  style: PropTypes.object,
 };

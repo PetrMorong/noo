@@ -10,60 +10,10 @@ export const TOGGLE_VIEWING_MOBILE = 'lisitingDetailPage/TOGGLE_VIEWING_MOBILE';
 export const TOGGLE_VIEWING_SUCCESS_DIALOG = 'lisitingDetailPage/TOGGLE_VIEWING_SUCCESS_DIALOG';
 export const TOGGLE_OFFER_MODAL = 'lisitingDetailPage/TOGGLE_OFFER_MODAL';
 
-export const LightboxTheme = {
-  container: {
-    background: 'rgba(0,0,0, 0.9)',
-  },
-  content: {
-    maxWidth: '100vw',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '100vw',
-  },
-  header: {
-    width: '100vw',
-    padding: '10px 20px',
-    position: 'absolute',
-    right: 0,
-    top: 0,
-  },
-  figure: {
-    marginTop: '40px',
-  },
-  footer: {
-    opacity: 0,
-  },
-  // arrows
-  arrow: {
-    color: 'white',
-    opacity: 0.9,
-    transition: 'opacity 200ms',
+export const GET_USER_BY_EMAIL_SUCCESS = 'lisitingDetailPage/GET_USER_BY_EMAIL_SUCCESS';
+export const GET_USER_BY_EMAIL = 'lisitingDetailPage/GET_USER_BY_EMAIL';
+export const GET_USER_BY_EMAIL_ERROR = 'lisitingDetailPage/GET_USER_BY_EMAIL_ERROR';
 
-    ':hover': {
-      opacity: 1,
-    },
-  },
-  arrow__size__medium: {
-    borderRadius: 40,
-    height: 40,
-    marginTop: -20,
-
-    '@media (min-width: 768px)': {
-      height: 70,
-      padding: 15,
-    },
-  },
-  close: {
-    color: 'white',
-    opacity: 0.9,
-    height: '50px',
-    width: '50px',
-    transition: 'all 200ms',
-    ':hover': {
-      opacity: 1,
-    },
-  },
-};
+export const SUBMIT_OFFER = 'lisitingDetailPage/SUBMIT_OFFER';
+export const SUBMIT_OFFER_SUCCESS = 'lisitingDetailPage/SUBMIT_OFFER_SUCCESS';
+export const SUBMIT_OFFER_ERROR = 'lisitingDetailPage/SUBMIT_OFFER_ERROR';

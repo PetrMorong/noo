@@ -1,10 +1,3 @@
-/**
- *
- * App
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
@@ -22,6 +15,7 @@ import ActivityPage from 'containers/ActivityPage/Loadable';
 import Header from 'components/Header';
 import Sidemenu from 'components/Sidemenu';
 import Notifications from 'containers/Notifications';
+import SnackBar from 'components/SnackBar';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -45,6 +39,7 @@ export default function App() {
       <Header />
       <Sidemenu />
       <Notifications />
+      <SnackBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />

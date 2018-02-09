@@ -23,6 +23,8 @@ export const Img = styled.img`
   min-height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+  width: 40px;
+  height: 40px;
 `;
 
 export const Img2 = styled.img`

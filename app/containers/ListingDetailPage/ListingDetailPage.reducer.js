@@ -9,6 +9,8 @@ const initialState = fromJS({
   expandMobile: false,
   openSuccessViewingDialog: false,
   openOfferModal: false,
+  roomatesFound: {},
+  garantorsFound: {},
 });
 
 function lisitingDetailReducer(state = initialState, action) {
@@ -32,7 +34,9 @@ function lisitingDetailReducer(state = initialState, action) {
         .set('expandMobile', !state.get('expandMobile'));
     case types.TOGGLE_OFFER_MODAL:
       return state
-        .set('openOfferModal', !state.get('openOfferModal'));
+        .set('openOfferModal', !state.get('openOfferModal'))
+        .set('roomatesFound', {})
+        .set('garantorsFound', {});
     case types.TOGGLE_VIEWING_SUCCESS_DIALOG:
       return state
         .set('openSuccessViewingDialog', !state.get('openSuccessViewingDialog'))
@@ -42,6 +46,18 @@ function lisitingDetailReducer(state = initialState, action) {
           ? false
           : state.get('expandMobile')
         );
+    case types.GET_USER_BY_EMAIL_SUCCESS:
+      if (action.personType === 'roomate') {
+        return state
+          .set('roomatesFound', { ...state.get('roomatesFound'), [action.index]: !action.data.length ? false : action.data[0] });
+      }
+      return state
+          .set('garantorsFound', { ...state.get('garantorsFound'), [action.index]: !action.data.length ? false : action.data[0] });
+    case types.SUBMIT_OFFER_SUCCESS:
+      return state
+        .set('openOfferModal', !state.get('openOfferModal'))
+        .set('roomatesFound', {})
+        .set('garantorsFound', {});
     default:
       return state;
   }
