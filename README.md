@@ -7,6 +7,9 @@
    *At this point you can run `npm start` to see the example app at `http://localhost:3000`.*
 4. Run `npm run clean` to delete the example app.
 
+## JSON-server setup
+
+
 ## Documentation
 
 - [**The Hitchhikers Guide to `react-boilerplate`**](docs/general/introduction.md): An introduction for newcomers to this boilerplate.
