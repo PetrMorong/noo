@@ -96,3 +96,9 @@ export function respondOffer(respondType) {
     respondType,
   };
 }
+
+export function clearOffers() {
+  return {
+    type: types.CLEAR_OFFERS,
+  };
+}

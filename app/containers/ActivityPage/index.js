@@ -12,6 +12,7 @@ import { changeActivityMode, getListingByUserId } from './ActivityPage.actions';
 import ActivitySidemenu from './components/ActivitySidemenu';
 import ActivityChat from './components/ActivityChat/index';
 import ActivityDefaultState from './components/ActivityDefaultState';
+import Calendar from './components/Calendar';
 import CounterOfferModal from './components/CounterOfferModal';
 import { makeSelectMode } from './ActivityPage.selectors';
 import reducer from './ActivityPage.reducer';
@@ -46,6 +47,7 @@ class ActivityPage extends React.Component {
 
   render() {
     const { handleChangeActivityMode, mode } = this.props;
+    const calendarOpen = true;
     return (
       <div>
         <Helmet>
@@ -61,7 +63,12 @@ class ActivityPage extends React.Component {
             <ActivityChat
               mode={mode}
             />
-            <ActivityDefaultState />
+            {!calendarOpen &&
+              <ActivityDefaultState />
+            }
+            {calendarOpen &&
+              <Calendar />
+            }
             <CounterOfferModal />
           </Shadow>
         </Container>

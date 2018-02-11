@@ -27,7 +27,9 @@ class ActivityPageListingsOffers extends React.Component {
     const { offers, loading, offerClick } = this.props;
     return (
       <RowWrap>
-        <FiveBest>5 best offers</FiveBest>
+        {offers.length > 0 &&
+          <FiveBest>5 best offers</FiveBest>
+        }
         {loading &&
           <span>loading</span>
         }
@@ -43,6 +45,9 @@ class ActivityPageListingsOffers extends React.Component {
         ))}
         {offers.length > 5 &&
           <FlatButton primary label="Show all" />
+        }
+        {!offers.length &&
+          <span>No offers yet</span>
         }
       </RowWrap>
     );

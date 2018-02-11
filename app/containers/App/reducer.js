@@ -21,6 +21,8 @@ const initialState = fromJS({
     paymentMethod: 'String',
     payeeMethod: 'string',
   },
+  openConfirmDialog: false,
+  dataConfirmDialog: {},
 });
 
 function appReducer(state = initialState, action) {
@@ -37,6 +39,10 @@ function appReducer(state = initialState, action) {
     case types.USER_SIGN_OUT:
       return state
         .set('user', false);
+    case types.TOGGLE_CONFIRM_DIALOG:
+      return state
+        .set('dataConfirmDialog', state.get('openConfirmDialog') ? {} : action.data)
+        .set('openConfirmDialog', !state.get('openConfirmDialog'));
     default:
       return state;
   }

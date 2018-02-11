@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 import IconButton from 'material-ui/IconButton';
 import BackIcon from 'material-ui/svg-icons/navigation/arrow-back';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 const Container = styled.div`
   width: 100%;
@@ -40,8 +43,11 @@ const Img = styled.img`
 `;
 const IconButtonWrap = styled.div`
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 5px;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 const Shadow = styled.div`
   position: absolute;
@@ -76,7 +82,9 @@ const Price = styled.span`
   font-size: 20px;
   font-weight: 600;
 `;
-export default function ActivityChatHeader({ data, mode = false, backClick }) {
+
+// TODO move styles to styles.js file
+export default function ActivityChatHeader({ data, mode = false, backClick, actions = false }) {
   return (
     <Container mode={mode}>
       <Shadow mode={mode} />
@@ -88,6 +96,19 @@ export default function ActivityChatHeader({ data, mode = false, backClick }) {
         >
           <BackIcon />
         </IconButton>
+        {actions &&
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+            iconStyle={{ fill: mode === 'advanced' ? 'white' : 'rgba(0,0,0,.85)' }}
+            menuStyle={{ color: 'rgba(0,0,0,.7)' }}
+          >
+            {actions.map((item) => (
+              <MenuItem primaryText={item.primaryText} onClick={item.onClick} key={item.primaryText} />
+            ))}
+          </IconMenu>
+        }
       </IconButtonWrap>
       <Img src={mode === 'advanced' ? data.primaryImage : data.user.thumbnail} alt="x" mode={mode} />
       {mode === 'advanced' &&
@@ -109,4 +130,5 @@ ActivityChatHeader.propTypes = {
   data: PropTypes.object,
   mode: PropTypes.string,
   backClick: PropTypes.backClick,
+  actions: PropTypes.array,
 };

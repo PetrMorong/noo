@@ -53,6 +53,9 @@ function lisitingDetailReducer(state = initialState, action) {
     case types.SELECT_OFFER:
       return state
         .set('selectedOffer', action.data);
+    case types.CLEAR_OFFERS:
+      return state
+        .set('listingsOffers', []);
     case types.SUBMIT_COUNTER_OFFER_SUCCESS:
       return state
       .set('openCounterOfferModal', !state.get('openCounterOfferModal'));

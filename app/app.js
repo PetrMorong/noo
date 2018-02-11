@@ -55,7 +55,7 @@ import './global-styles';
 // customize Material UI theme
 const muiTheme = getMuiTheme({
   palette: {
-    textColor: 'rgba(0,0,0,.45)',
+    textColor: 'rgba(0,0,0,.60)',
     primary1Color: '#009788',
     primary2Color: 'rgba(0, 151, 136, .8)',
     accent1Color: '#009788',

@@ -19,7 +19,7 @@ function SnackbarComponent({ data, handleClose }) {
         message={_.get(data[0], 'message')}
         autoHideDuration={4000}
         onRequestClose={handleClose}
-        style={{ background: 'rgba(0,0,0,.8)' }}
+        style={{ background: 'rgba(0,0,0,.95)' }}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import request from 'utils/request';
 import { apiUrl } from 'config/index';
 import { makeSelectUser } from 'containers/App/selectors';
 import { addEventSnackbar } from 'components/SnackBar/SnackBar.actions';
-
+import { toggleConfirmDialog } from 'containers/App/actions';
 import {
   makeSelectSelectedOffer,
   makeSelectCounterOfferForm,
@@ -13,6 +13,8 @@ import {
   GET_LISTINGS_OFFERS,
   SUBMIT_COUNTER_OFFER,
   RESPOND_OFFER,
+  DELETE_LISTING,
+  UNPUBLISH_LISTING,
 } from './ActivityPage.constants';
 import {
   getListingByUserIdSuccess,
@@ -82,11 +84,35 @@ export function* respondOffer(action) {
   }
 }
 
+export function* modifyListing(action) {
+  /* let actionType;
+  if (action.type === UNPUBLISH_LISTING) {
+    actionType = 'unpublish';
+  } else if (action.type === DELETE_LISTING) {
+    actionType = 'delete';
+  }
+  const dataToSend = {
+    action: actionType,
+    listingId: 2, // TODO get listing id
+  };
+  const requestURL = `${apiUrl}/Listings/${dataToSend.listingId}`; */
+  try {
+    // const data = yield call(request, requestURL, 'PUT', dataToSend);
+    yield put(addEventSnackbar({ message: `Listing was ${action.type === UNPUBLISH_LISTING ? 'unpublished' : 'deleted'}` }));
+    yield put(toggleConfirmDialog());
+    // TODO refresh offer detail with new data
+  } catch (err) {
+    // TODO err handling
+  }
+}
+
 export default function* watchAll() {
   yield all([
     yield takeLatest(GET_LISTINGS_BY_USER_ID, getListingByUserId),
     yield takeLatest(GET_LISTINGS_OFFERS, getListingsOffers),
     yield takeLatest(SUBMIT_COUNTER_OFFER, handleSubmitCounterOffer),
     yield takeLatest(RESPOND_OFFER, respondOffer),
+    yield takeLatest(UNPUBLISH_LISTING, modifyListing),
+    yield takeLatest(DELETE_LISTING, modifyListing),
   ]);
 }

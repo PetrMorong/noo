@@ -23,5 +23,8 @@ export const LISTINGS_STEP_OFFER_DETAIL = 'ActivityPage/LISTINGS_STEP_OFFER_DETA
 export const CHANGE_LISTINGS_STEP = 'ActivityPage/CHANGE_LISTINGS_STEP';
 export const SELECT_LISTING = 'ActivityPage/SELECT_LISTING';
 export const SELECT_OFFER = 'ActivityPage/SELECT_OFFER';
+export const CLEAR_OFFERS = 'ActivityPage/CLEAR_OFFERS';
 
 export const RESPOND_OFFER = 'ActivityPage/RESPOND_OFFER';
+export const UNPUBLISH_LISTING = 'ActivityPage/UNPUBLISH_LISTING';
+export const DELETE_LISTING = 'ActivityPage/DELETE_LISTING';

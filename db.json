@@ -1,0 +1,548 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "email": "email@email.com",
+      "password": "12345",
+      "firstName": "Petr",
+      "lastName": "Morong",
+      "company": "Nookpad",
+      "picture": "https://www.caaspeakers.com/wp-content/uploads/sites/3/2012/12/VaynerchukG_headshot_web1-330x360.jpg",
+      "phoneNumber": "+420737212314",
+      "phoneVerified": true,
+      "emailVerified": true,
+      "identityVerified": true,
+      "paymentMethod": "String",
+      "payeeMethod": "string"
+    },
+    {
+      "id": 2,
+      "email": "petr@email.com",
+      "password": "12345",
+      "firstName": "Mehdi",
+      "lastName": "Amor",
+      "company": "Nookpad",
+      "picture": "https://www.caaspeakers.com/wp-content/uploads/sites/3/2012/12/VaynerchukG_headshot_web1-330x360.jpg",
+      "phoneNumber": "+420737212314",
+      "phoneVerified": true,
+      "emailVerified": true,
+      "identityVerified": true,
+      "paymentMethod": "String",
+      "payeeMethod": "string"
+    }
+  ],
+  "Listings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "23 reu de L'exposition",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Cozy appartement in London",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "https://www.lesvoletsverts.fr/wp-content/uploads/2017/08/salon7.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.5.2018",
+      "leaseDuration": 24,
+      "price": 1700,
+      "currency": "EUR",
+      "depositPolicy": 1
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "status": "published",
+      "propertyType": "Studio",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "propertySize": 89,
+      "address": {
+        "location": "7 boyd street London",
+        "gpsCoordinates": "integer (required)"
+      },
+      "amenities": [
+        "Pool",
+        "Gym",
+        "TV",
+        "Wifi",
+        "Kitchen"
+      ],
+      "title": "Big place on 5th Avenue",
+      "description": "The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.The apartment is in the clock tower above St Pancras International Station. This guest suite with a double bedroom on the 4th floor looks out over Kings Cross Station. The apartment has another double bedroom, also on the 4th floor being used by the owner or by other guests. This guest suite has all its own facilities not shared with others including in addition to the bed, a living area, a small kitchen/dining area and its own bathroom and shower. As the apartment is on the 4th and 5th floors and fully equipped with secondary glazing, the road and railway noise is very low and almost nobody notices it but I would advise delicate sleepers to be aware of it before booking. The suite is available for short or long-term letting and ideally suits couples on holiday in London for a few days or a week.",
+      "primaryImage": "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+      "images": [
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg",
+        "http://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg"
+      ],
+      "propertyMoveInDate": "1.8.2018",
+      "leaseDuration": 24,
+      "price": 2500,
+      "currency": "GBP",
+      "depositPolicy": 1
+    }
+  ],
+  "Viewings": [
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-06T23:00:00.000Z",
+      "time": "08:20",
+      "status": "submited",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-24T23:00:00.000Z",
+      "time": "10:40",
+      "status": "submited",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "10:40",
+      "status": "submited",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "10:40",
+      "status": "submited",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:00",
+      "status": "submited",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:00",
+      "status": "submited",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:20",
+      "status": "submited",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:00",
+      "status": "submited",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:40",
+      "status": "submited",
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "status": "submited",
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:20",
+      "status": "submited",
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "09:20",
+      "status": "submited",
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "09:20",
+      "status": "submited",
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "date": "2018-02-15T23:00:00.000Z",
+      "time": "11:00",
+      "status": "submited",
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "date": "2018-02-22T23:00:00.000Z",
+      "time": "10:40",
+      "status": "submited",
+      "id": 22
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "date": "2018-02-08T23:00:00.000Z",
+      "status": "submited",
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "listingId": 2,
+      "date": "2018-02-08T23:00:00.000Z",
+      "time": "11:00",
+      "status": "submited",
+      "id": 24
+    }
+  ],
+  "Notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "listingId": 1,
+      "message": "USer made a viwing request",
+      "type": "viewing",
+      "viewed": false,
+      "date": "28.08.2000"
+    },
+    {
+      "userId": 1,
+      "listingId": 1,
+      "message": "User made a veiwing request TODO figure out wordings",
+      "type": "viewing",
+      "viewed": false,
+      "id": 4,
+      "date": "28.08.2000"
+    },
+    {
+      "userId": 2,
+      "listingId": 1,
+      "message": "User made a veiwing request TODO figure out wordings",
+      "type": "viewing",
+      "viewed": false,
+      "id": 5,
+      "date": "28.08.2000"
+    },
+    {
+      "userId": 2,
+      "listingId": 2,
+      "message": "User made a veiwing request TODO figure out wordings",
+      "type": "viewing",
+      "viewed": false,
+      "id": 6,
+      "date": "28.08.2000"
+    }
+  ],
+  "Offers": [
+    {
+      "id": 1,
+      "listingId": 2,
+      "price": 555,
+      "moveInDate": "22.2.2000",
+      "leaseDuration": 24,
+      "deposit": 555,
+      "roomates": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "garantors": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "user": {
+        "id": 1,
+        "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+        "firstName": "Petr",
+        "lastName": "Meyer",
+        "score": 9.5
+      },
+      "score": 6.4,
+      "status": "TODO"
+    },
+    {
+      "id": 2,
+      "listingId": 3,
+      "price": 555,
+      "moveInDate": "22.2.2000",
+      "leaseDuration": 24,
+      "deposit": 555,
+      "roomates": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "garantors": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "user": {
+        "id": 1,
+        "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+        "firstName": "Petr",
+        "lastName": "Meyer",
+        "score": 9.5
+      },
+      "score": 6.4,
+      "status": "TODO"
+    },
+    {
+      "id": 3,
+      "listingId": 4,
+      "price": 555,
+      "moveInDate": "22.2.2000",
+      "leaseDuration": 24,
+      "deposit": 555,
+      "roomates": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "garantors": [
+        {
+          "id": 1,
+          "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+          "firstName": "Petr",
+          "lastName": "Meyer",
+          "score": 9.5
+        }
+      ],
+      "user": {
+        "id": 1,
+        "thumbnail": "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Creator/17549/creator17549._QL80_TTD_.jpg",
+        "firstName": "Petr",
+        "lastName": "Meyer",
+        "score": 9.5
+      },
+      "score": 6.4,
+      "status": "TODO"
+    }
+  ]
+}

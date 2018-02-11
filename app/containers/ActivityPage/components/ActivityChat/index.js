@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { toggleConfirmDialog } from 'containers/App/actions';
 
 import * as types from '../../ActivityPage.constants';
 import {
@@ -11,7 +12,7 @@ import {
   makeSelectSelectedListing,
   makeSelectSelectedOffer,
 } from '../../ActivityPage.selectors';
-import { changeListingsStep, selectListing, selectOffer } from '../../ActivityPage.actions';
+import { changeListingsStep, selectListing, selectOffer, clearOffers } from '../../ActivityPage.actions';
 import ActivityChatHeader from './ActivityChatHeader';
 import ActivityPageListings from './ActivityPageListings';
 import ActivityPageListingsOffers from './ActivityPageListingsOffers';
@@ -26,7 +27,15 @@ import {
   TabButtonStyle,
 } from './styles';
 
-function ActivityChat({ mode, listingsStep, handleChangeListingsStep, selectedListing, selectedOffer, handleChangeGoToOfffers }) {
+function ActivityChat({
+  mode,
+  listingsStep,
+  handleChangeListingsStep,
+  selectedListing,
+  selectedOffer,
+  handleChangeGoToOfffers,
+  handleToggleConfirmDialog,
+}) {
   return (
     <Wrap step={listingsStep}>
       <Tabs
@@ -49,6 +58,30 @@ function ActivityChat({ mode, listingsStep, handleChangeListingsStep, selectedLi
                   data={selectedListing}
                   mode="advanced"
                   backClick={_.partial(handleChangeListingsStep, types.LISTINGS_STEP_LIST)}
+                  actions={[
+                    {
+                      primaryText: 'Edit',
+                      onClick: () => {},
+                    },
+                    {
+                      primaryText: 'Unpublish',
+                      onClick: _.partial(handleToggleConfirmDialog, {
+                        message: 'Unpublish ?',
+                        cancelLabel: 'Cancel',
+                        confirmLabel: 'Unpublish',
+                        confirmOnClick: 'unpublishListing',
+                      }),
+                    },
+                    {
+                      primaryText: 'Delete',
+                      onClick: _.partial(handleToggleConfirmDialog, {
+                        message: 'Delete ?',
+                        cancelLabel: 'Cancel',
+                        confirmLabel: 'Delete',
+                        confirmOnClick: 'deleteListing',
+                      }),
+                    },
+                  ]}
                 />
                 <ActivityPageListingsOffers
                   data={selectedListing}
@@ -62,9 +95,7 @@ function ActivityChat({ mode, listingsStep, handleChangeListingsStep, selectedLi
                   data={selectedOffer}
                   backClick={handleChangeGoToOfffers}
                 />
-                <OfferDetail
-                  data={selectedOffer}
-                />
+                <OfferDetail data={selectedOffer} />
               </div>
             }
           </Tab>
@@ -96,12 +127,16 @@ ActivityChat.propTypes = {
   selectedListing: PropTypes.object,
   selectedOffer: PropTypes.object,
   handleChangeGoToOfffers: PropTypes.func,
+  handleToggleConfirmDialog: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     handleChangeListingsStep: (step, item) => {
       dispatch(changeListingsStep(step));
+      if (step === types.LISTINGS_STEP_LIST) {
+        dispatch(clearOffers());
+      }
       if (step === types.LISTINGS_STEP_OFFERS) {
         dispatch(selectListing(item));
       }
@@ -110,6 +145,7 @@ export function mapDispatchToProps(dispatch) {
       }
     },
     handleChangeGoToOfffers: () => dispatch(changeListingsStep(types.LISTINGS_STEP_OFFERS)),
+    handleToggleConfirmDialog: (data) => dispatch(toggleConfirmDialog(data)),
   };
 }
 

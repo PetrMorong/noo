@@ -16,6 +16,7 @@ import Header from 'components/Header';
 import Sidemenu from 'components/Sidemenu';
 import Notifications from 'containers/Notifications';
 import SnackBar from 'components/SnackBar';
+import ConfirmDialog from 'components/ConfirmDialog';
 
 const AppWrapper = styled.div`
   margin: 0 auto;
@@ -40,6 +41,7 @@ export default function App() {
       <Sidemenu />
       <Notifications />
       <SnackBar />
+      <ConfirmDialog />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />

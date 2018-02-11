@@ -1,6 +1,8 @@
-export const apiUrl = 'http://localhost:4000';
+export const apiUrl = 'https://nookpad-server.herokuapp.com';
 
 export const maxFileSize = 1024 * 1024 * 2; // 2Mb
+
+export const calendarHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 
 export const defaultViewingTimes = [
   '08:00',
