@@ -1,4 +1,4 @@
-export const apiUrl = 'http://localhost:4000';
+export const apiUrl = 'https://nookpad-server.herokuapp.com';
 
 export const maxFileSize = 1024 * 1024 * 2; // 2Mb
 
