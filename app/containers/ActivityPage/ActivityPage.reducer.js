@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-
+import moment from 'moment';
 import * as types from './ActivityPage.constants';
 
 const initialState = fromJS({
@@ -14,6 +14,12 @@ const initialState = fromJS({
   listingsStep: types.LISTINGS_STEP_LIST,
   selectedListing: {},
   selectedOffer: {},
+  calendarStartDate: moment().startOf('day').format(),
+  openCalendar: true,
+  viewings: [],
+  loadingViewings: true,
+  vieiwingsError: false,
+  viewingDetail: false,
 });
 
 function lisitingDetailReducer(state = initialState, action) {
@@ -59,6 +65,26 @@ function lisitingDetailReducer(state = initialState, action) {
     case types.SUBMIT_COUNTER_OFFER_SUCCESS:
       return state
       .set('openCounterOfferModal', !state.get('openCounterOfferModal'));
+    case types.CHANGE_CALENDAR_START_DATE:
+      return state
+      .set('calendarStartDate', action.date);
+    case types.TOGGLE_CALENDAR:
+      return state
+      .set('openCalendar', !state.get('openCalendar'));
+    case types.GET_VIEWINGS:
+      return state
+      .set('loadingViewings', true);
+    case types.GET_VIEWINGS_SUCCESS:
+      return state
+      .set('viewings', action.data)
+      .set('loadingViewings', false);
+    case types.GET_VIEWINGS_ERROR:
+      return state
+      .set('vieiwingsError', action.err)
+      .set('loadingViewings', false);
+    case types.TOGGLE_VIEWING_DETAIL:
+      return state
+      .set('viewingDetail', state.get('viewingDetail') ? false : action.item);
     default:
       return state;
   }

@@ -15,6 +15,7 @@ import {
   RESPOND_OFFER,
   DELETE_LISTING,
   UNPUBLISH_LISTING,
+  GET_VIEWINGS,
 } from './ActivityPage.constants';
 import {
   getListingByUserIdSuccess,
@@ -23,6 +24,8 @@ import {
   getListingsOffersError,
   handleSubmitCounterOfferSuccess,
   handleSubmitCounterOfferError,
+  getViewingsSuccess,
+  getViewingsError,
 } from './ActivityPage.actions';
 
 export function* getListingByUserId() {
@@ -105,6 +108,18 @@ export function* modifyListing(action) {
     // TODO err handling
   }
 }
+export function* getViewings() {
+  // getting listing by userId does not works only for tenant
+  // TODO we should sent date and get vieiwings for next 7 days
+  const user = yield select(makeSelectUser());
+  const requestURL = `${apiUrl}/Viewings?userId=${user.get('id')}`;
+  try {
+    const data = yield call(request, requestURL, 'GET');
+    yield put(getViewingsSuccess(data));
+  } catch (err) {
+    yield put(getViewingsError(err));
+  }
+}
 
 export default function* watchAll() {
   yield all([
@@ -114,5 +129,6 @@ export default function* watchAll() {
     yield takeLatest(RESPOND_OFFER, respondOffer),
     yield takeLatest(UNPUBLISH_LISTING, modifyListing),
     yield takeLatest(DELETE_LISTING, modifyListing),
+    yield takeLatest(GET_VIEWINGS, getViewings),
   ]);
 }

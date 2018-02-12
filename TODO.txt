@@ -7,3 +7,5 @@ Figure out wordings for notification and types
 Listing detail id not provided ... handle errors
 Validation on redux form doesnt work
 Check for loading states and empty states
+Provide IDs for material ui inputs
+Clear console warnings

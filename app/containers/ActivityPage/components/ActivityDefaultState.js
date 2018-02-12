@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import AddIcon from 'material-ui/svg-icons/content/add';
 import CalendarIcon from 'material-ui/svg-icons/action/date-range';
 import OfferIcon from 'material-ui/svg-icons/maps/local-offer';
+
+import { toggleCalendar } from '../ActivityPage.actions';
 
 const Container = styled.div`
   width: 100%;
@@ -51,7 +54,8 @@ const ActionWrap = styled.div`
   display: flex;
   margin-top: 50px;
 `;
-export default function ActivityDefaultState() {
+
+function ActivityDefaultState({ handleToggleCalendar }) {
   return (
     <Container>
       <Hello>
@@ -67,7 +71,9 @@ export default function ActivityDefaultState() {
           <OfferIcon />
           <p>Offers</p>
         </Action>
-        <Action>
+        <Action
+          onClick={handleToggleCalendar}
+        >
           <CalendarIcon />
           <p>Calendar</p>
         </Action>
@@ -75,3 +81,17 @@ export default function ActivityDefaultState() {
     </Container>
   );
 }
+
+ActivityDefaultState.propTypes = {
+  handleToggleCalendar: PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    handleToggleCalendar: () => dispatch(toggleCalendar()),
+  };
+}
+
+const mapStateToProps = () => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActivityDefaultState);

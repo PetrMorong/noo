@@ -43,6 +43,27 @@ const makeSelectCounterOfferForm = () => createSelector(
   selectForm,
   (state) => state.counterOfferForm
 );
+const makeSelectCalendarStartDate = () => createSelector(
+  selectActivity,
+  (state) => state.get('calendarStartDate')
+);
+const makeSelectOpenCalendar = () => createSelector(
+  selectActivity,
+  (state) => state.get('openCalendar')
+);
+const makeSelectViewings = () => createSelector(
+  selectActivity,
+  (state) => state.get('viewings')
+);
+const makeSelectLoadingViewings = () => createSelector(
+  selectActivity,
+  (state) => state.get('loadingViewings')
+);
+const makeSelectViewingDetail = () => createSelector(
+  selectActivity,
+  (state) => state.get('viewingDetail')
+);
+
 export {
   selectActivity,
   makeSelectMode,
@@ -55,4 +76,9 @@ export {
   makeSelectSelectedListing,
   makeSelectSelectedOffer,
   makeSelectCounterOfferForm,
+  makeSelectCalendarStartDate,
+  makeSelectOpenCalendar,
+  makeSelectViewings,
+  makeSelectLoadingViewings,
+  makeSelectViewingDetail,
 };

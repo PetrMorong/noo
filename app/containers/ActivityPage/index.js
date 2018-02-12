@@ -14,7 +14,7 @@ import ActivityChat from './components/ActivityChat/index';
 import ActivityDefaultState from './components/ActivityDefaultState';
 import Calendar from './components/Calendar';
 import CounterOfferModal from './components/CounterOfferModal';
-import { makeSelectMode } from './ActivityPage.selectors';
+import { makeSelectMode, makeSelectOpenCalendar } from './ActivityPage.selectors';
 import reducer from './ActivityPage.reducer';
 import saga from './ActivityPage.saga';
 
@@ -46,8 +46,11 @@ class ActivityPage extends React.Component {
   }
 
   render() {
-    const { handleChangeActivityMode, mode } = this.props;
-    const calendarOpen = true;
+    const {
+      handleChangeActivityMode,
+      mode,
+      openCalendar,
+    } = this.props;
     return (
       <div>
         <Helmet>
@@ -63,10 +66,10 @@ class ActivityPage extends React.Component {
             <ActivityChat
               mode={mode}
             />
-            {!calendarOpen &&
+            {!openCalendar &&
               <ActivityDefaultState />
             }
-            {calendarOpen &&
+            {openCalendar &&
               <Calendar />
             }
             <CounterOfferModal />
@@ -81,6 +84,7 @@ ActivityPage.propTypes = {
   handleChangeActivityMode: PropTypes.func,
   mode: PropTypes.string,
   getListings: PropTypes.func,
+  openCalendar: PropTypes.bool,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -92,6 +96,7 @@ export function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = createStructuredSelector({
   mode: makeSelectMode(),
+  openCalendar: makeSelectOpenCalendar(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

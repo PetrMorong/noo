@@ -9,3 +9,12 @@ export function checkFile(file) {
   }
   return true;
 }
+
+export function getViewingPosition(x) {
+  if (x.time.substring(3, 5) === '00') {
+    return { top: '2px' };
+  } else if (x.time.substring(3, 5) === '20') {
+    return { top: '22px' };
+  }
+  return { top: '42px' };
+}

@@ -19,8 +19,8 @@ export const LANDLORD = 'ActivityPage/LANDLORD';
 export const LISTINGS_STEP_LIST = 'ActivityPage/LISTINGS_STEP_LIST';
 export const LISTINGS_STEP_OFFERS = 'ActivityPage/LISTINGS_STEP_OFFERS';
 export const LISTINGS_STEP_OFFER_DETAIL = 'ActivityPage/LISTINGS_STEP_OFFER_DETAIL';
-
 export const CHANGE_LISTINGS_STEP = 'ActivityPage/CHANGE_LISTINGS_STEP';
+
 export const SELECT_LISTING = 'ActivityPage/SELECT_LISTING';
 export const SELECT_OFFER = 'ActivityPage/SELECT_OFFER';
 export const CLEAR_OFFERS = 'ActivityPage/CLEAR_OFFERS';
@@ -28,3 +28,12 @@ export const CLEAR_OFFERS = 'ActivityPage/CLEAR_OFFERS';
 export const RESPOND_OFFER = 'ActivityPage/RESPOND_OFFER';
 export const UNPUBLISH_LISTING = 'ActivityPage/UNPUBLISH_LISTING';
 export const DELETE_LISTING = 'ActivityPage/DELETE_LISTING';
+
+export const CHANGE_CALENDAR_START_DATE = 'ActivityPage/CHANGE_CALENDAR_START_DATE';
+export const TOGGLE_CALENDAR = 'ActivityPage/TOGGLE_CALENDAR';
+
+export const GET_VIEWINGS = 'ActivityPage/GET_VIEWINGS';
+export const GET_VIEWINGS_SUCCESS = 'ActivityPage/GET_VIEWINGS_SUCCESS';
+export const GET_VIEWINGS_ERROR = 'ActivityPage/GET_VIEWINGS_ERROR';
+
+export const TOGGLE_VIEWING_DETAIL = 'ActivityPage/TOGGLE_VIEWING_DETAIL';

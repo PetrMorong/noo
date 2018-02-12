@@ -102,3 +102,43 @@ export function clearOffers() {
     type: types.CLEAR_OFFERS,
   };
 }
+
+export function changeCalendarStartDate(date) {
+  return {
+    type: types.CHANGE_CALENDAR_START_DATE,
+    date,
+  };
+}
+
+export function toggleCalendar(date) {
+  return {
+    type: types.TOGGLE_CALENDAR,
+    date,
+  };
+}
+
+export function getViewings(date) {
+  return {
+    type: types.GET_VIEWINGS,
+    date,
+  };
+}
+export function getViewingsSuccess(data) {
+  return {
+    type: types.GET_VIEWINGS_SUCCESS,
+    data,
+  };
+}
+export function getViewingsError(err) {
+  return {
+    type: types.GET_VIEWINGS_ERROR,
+    err,
+  };
+}
+
+export function toggleViewingDetail(item) {
+  return {
+    type: types.TOGGLE_VIEWING_DETAIL,
+    item,
+  };
+}
