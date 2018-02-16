@@ -6,10 +6,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     return (
       <article>
         <Helmet>
-          <title>Home Pagae</title>
+          <title>Home Page</title>
           <meta name="description" content="A React.js Boilerplate application homepage" />
         </Helmet>
-        HOME PAGe
+        HOME PAGE
       </article>
     );
   }
