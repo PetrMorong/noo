@@ -32,14 +32,14 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="Nookpad"
         defaultTitle="Nookpad"
+        titleTemplate="%s - Nookpad"
       >
         <meta name="description" content="Nookpad - matching tenants and landlords" />
       </Helmet>
+      <Notifications />
       <Header />
       <Sidemenu />
-      <Notifications />
       <SnackBar />
       <ConfirmDialog />
       <Switch>

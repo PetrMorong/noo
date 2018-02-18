@@ -5,13 +5,14 @@ import injectReducer from 'utils/injectReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
+import Loader from 'components/Loader';
 
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
-import IconButton from 'material-ui/IconButton';
+// import SettingsIcon from 'material-ui/svg-icons/action/settings';
+// import IconButton from 'material-ui/IconButton';
 import saga from './Notifications.saga';
 
 import { toggleNotifications, getNotifications } from './Notifications.actions';
-import { makeSelectNotificationOpen, makeSelectData } from './Notifications.selectors';
+import { makeSelectNotificationOpen, makeSelectData, makeSelectLoadingNotifications } from './Notifications.selectors';
 import reducer from './Notifications.reducer';
 import Notification from './components/Notification/index';
 
@@ -29,20 +30,30 @@ class Notifications extends React.Component {
   }
 
   render() {
-    const { opened, handleToggleNotifications, data } = this.props;
+    const { opened, handleToggleNotifications, data, loading } = this.props;
     return (
       <div>
         <Wrap opened={opened}>
           <Header>
             <p>Notifications</p>
-            <IconButton tooltip="Settings" touch>
+            {/* <IconButton tooltip="Settings" touch>
               <SettingsIcon />
-            </IconButton>
+            </IconButton> */}
           </Header>
           <Body>
+            {loading &&
+              <div className="loaderWrap">
+                <Loader />
+              </div>
+            }
             {data.map((item) => (
               <Notification item={item} key={item.id} />
             ))}
+            {(!data.length && !loading) &&
+              <div className="loaderWrap">
+                <span>No notifications</span>
+              </div>
+            }
           </Body>
         </Wrap>
         {opened &&
@@ -60,6 +71,7 @@ Notifications.propTypes = {
   handleToggleNotifications: PropTypes.func,
   handleGetNotifications: PropTypes.func,
   data: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -72,6 +84,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   opened: makeSelectNotificationOpen(),
   data: makeSelectData(),
+  loading: makeSelectLoadingNotifications(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

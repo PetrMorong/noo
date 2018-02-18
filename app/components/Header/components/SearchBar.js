@@ -35,7 +35,7 @@ const SearchBarWrapMobile = styled.div`
 const Container = styled.div`
   width: 100%;
   margin: 0 25px;
-  @media(max-width: 600px) {
+  @media(max-width: 768px) {
     margin: 0;
     width: auto;
   }
@@ -44,17 +44,16 @@ const Container = styled.div`
 function SearchBar() {
   return (
     <Container>
-      <SearchBarWrap>
+      {/* <SearchBarWrap>
         <SearchIcon />
         <TextWrap>
-          <FormattedMessage {...messages.search} />
         </TextWrap>
       </SearchBarWrap>
       <SearchBarWrapMobile>
         <IconButton >
           <SearchIcon />
         </IconButton>
-      </SearchBarWrapMobile>
+      </SearchBarWrapMobile> */}
     </Container>
   );
 }

@@ -7,10 +7,10 @@ import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import NotificationWrap from './NotificationWrap';
 import RedAlert from './RedAlert';
 
-function Notification({ onClick, hasAlert, location }) {
+function Notification({ onClick, notifications, location }) {
   return (
     <NotificationWrap>
-      {hasAlert && <RedAlert type="alert" />}
+      {notifications.length > 0 && <RedAlert type="alert" />}
       <IconButton onClick={onClick} iconStyle={{ fill: location === '/activity' ? 'white' : 'currentColor' }}>
         <NotifyIcon />
       </IconButton>
@@ -20,7 +20,7 @@ function Notification({ onClick, hasAlert, location }) {
 
 Notification.propTypes = {
   onClick: PropTypes.func,
-  hasAlert: PropTypes.bool.isRequired,
+  notifications: PropTypes.array,
   location: PropTypes.string,
 };
 

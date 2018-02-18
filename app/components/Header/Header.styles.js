@@ -50,7 +50,8 @@ export const HeaderProfileWrap = styled.div`
 
 export const HeaderFlatButtonWrap = styled.div`
   @media(max-width: 768px) {
-    display: none;
+    position: absolute;
+    right: 0px;
   }
 `;
 export const Flex = styled.div`

@@ -4,7 +4,9 @@ export default styled.div`
   padding: 0;
   position: relative;
 
-  @media (max-width: 600px) {
-    display: none;
+  @media (max-width: 768px) {
+    position: absolute;
+    right: 6px;
+    top: 7px;
   }
 `;

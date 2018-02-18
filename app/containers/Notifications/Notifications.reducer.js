@@ -7,6 +7,7 @@ const initialState = fromJS({
   opened: false,
   data: [],
   error: false,
+  loading: false,
 });
 
 function searchPageReducer(state = initialState, action) {
@@ -17,12 +18,17 @@ function searchPageReducer(state = initialState, action) {
     case LOCATION_CHANGE:
       return state
         .set('opened', false);
+    case types.GET_NOTIFICATIONS:
+      return state
+        .set('loading', true);
     case types.GET_NOTIFICATIONS_SUCCESS:
       return state
-        .set('data', action.data);
+        .set('data', action.data)
+        .set('loading', false);
     case types.GET_NOTIFICATIONS_ERROR:
       return state
-        .set('error', action.err);
+        .set('error', action.err)
+        .set('loading', false);
     default:
       return state;
   }

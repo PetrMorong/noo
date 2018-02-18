@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import injectSaga from 'utils/injectSaga';
 import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
+import Loader from 'components/Loader/index';
+import _ from 'lodash';
 
 import ListingDetailHeader from './components/ListingDetailHeader/index';
 import ListingDetailDescription from './components/ListingDetailDescription/index';
@@ -16,6 +18,7 @@ import {
   ListingDetailPageWrap,
   ListingDetailBodyWrap,
   ListingDetailBodyContainer,
+  LoaderWrap,
 } from './styles';
 import {
   getListingDetail,
@@ -32,6 +35,7 @@ import {
   makeSelectExpandMobile,
   makeSelectopenSuccessViewingDialog,
   makeSelectOpenOfferModal,
+  makeSelectmakeViewingForm,
 } from './ListingDetailPage.selectors';
 
 class ListingDetailPage extends React.Component {
@@ -43,15 +47,18 @@ class ListingDetailPage extends React.Component {
   }
 
   render() {
-    const { data, loading, expandMobile, openSuccessViewingDialog, openOfferModal } = this.props;
+    const { data, loading, expandMobile, openSuccessViewingDialog, openOfferModal, viewingForm } = this.props;
     if (loading) {
-      // TODO make loading placeholders
-      return <span>loading</span>;
+      return (
+        <LoaderWrap>
+          <Loader />
+        </LoaderWrap>
+      );
     }
     return (
       <div>
         <Helmet>
-          <title>Search TODO Translate</title>
+          <title>{_.get(data, 'title', '')}</title>
           <meta name="description" content="Property name TODO get from backend" />
         </Helmet>
         <ListingDetailPageWrap>
@@ -68,6 +75,7 @@ class ListingDetailPage extends React.Component {
                 expandMobile={expandMobile}
                 openSuccessViewingDialog={openSuccessViewingDialog}
                 openOfferModal={openOfferModal}
+                viewingForm={viewingForm}
               />
             </ListingDetailBodyWrap>
           </ListingDetailBodyContainer>
@@ -90,15 +98,13 @@ ListingDetailPage.propTypes = {
   openSuccessViewingDialog: PropTypes.bool,
   handleToggleOfferModal: PropTypes.func,
   openOfferModal: PropTypes.bool,
+  viewingForm: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     getData: (id) => dispatch(getListingDetail(id)),
-    submitScheduleViewing: (e) => {
-      e.preventDefault();
-      dispatch(submitScheduleViewing());
-    },
+    submitScheduleViewing: () => dispatch(submitScheduleViewing()),
     handleToggleViewingMobile: () => dispatch(handleToggleViewingMobile()),
     handleToggleViewingSuccessDialog: () => dispatch(handleToggleViewingSuccessDialog()),
     handleToggleOfferModal: () => dispatch(toggleOfferModal()),
@@ -112,6 +118,7 @@ const mapStateToProps = createStructuredSelector({
   expandMobile: makeSelectExpandMobile(),
   openSuccessViewingDialog: makeSelectopenSuccessViewingDialog(),
   openOfferModal: makeSelectOpenOfferModal(),
+  viewingForm: makeSelectmakeViewingForm(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

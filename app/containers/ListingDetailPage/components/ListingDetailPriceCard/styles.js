@@ -4,7 +4,7 @@ export const Wrap = styled.div`
   background: white;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
   width: 35%;
-  height: 290px;
+  height: 345px;
   padding: 20px;
 
   @media(max-width: 1000px) {
@@ -76,6 +76,8 @@ export const DateInputWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  flex-direction: column;
+  margin-top: 10px;
 
   @media(max-width: 1000px) {
     display: ${(props) => props.expandMobile ? 'flex' : 'none'};

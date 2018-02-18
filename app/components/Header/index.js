@@ -9,6 +9,7 @@ import { makeSelectPathname } from 'components/Sidemenu/Sidemenu.selectors';
 import reducer from 'containers/App/reducer';
 import CalendarIcon from 'material-ui/svg-icons/action/date-range';
 import { toggleNotifications } from 'containers/Notifications/Notifications.actions';
+import { makeSelectData } from 'containers/Notifications/Notifications.selectors';
 
 import injectReducer from 'utils/injectReducer';
 import HeaderWrap from './components/HeaderWrap';
@@ -20,12 +21,11 @@ import SearchBar from './components/SearchBar';
 import HeaderProfile from './components/HeaderProfile';
 import { HeaderCreateListingWrap, HeaderFlatButtonWrap, Flex, Calendar } from './Header.styles';
 
-function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location, handleToggleNotifications }) {
+function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location, handleToggleNotifications, notifications }) {
   return (
     <HeaderWrap location={location}>
       <HeaderBurger
         onClick={handleBurgerClick}
-        hasAlert
         location={location}
       />
       <Logo location={location} />
@@ -49,7 +49,7 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location,
       {user ?
         <Flex location={location}>
           <Notification
-            hasAlert={1}
+            notifications={notifications}
             location={location}
             onClick={handleToggleNotifications}
           />
@@ -78,6 +78,7 @@ Header.propTypes = {
   user: PropTypes.bool,
   location: PropTypes.string,
   handleToggleNotifications: PropTypes.func,
+  notifications: PropTypes.array,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -92,6 +93,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   user: makeSelectUser(),
   location: makeSelectPathname(),
+  notifications: makeSelectData(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

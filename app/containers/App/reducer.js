@@ -35,7 +35,7 @@ function appReducer(state = initialState, action) {
         .set('sideMenuOpen', false);
     case types.USER_LOGIN:
       return state
-        .set('user', true);
+        .set('user', initialState.get('user'));
     case types.USER_SIGN_OUT:
       return state
         .set('user', false);

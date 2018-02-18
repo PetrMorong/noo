@@ -9,21 +9,23 @@ const LogoWrapper = styled.div`
   margin-right: 80px;
   color: ${(props) => props.location === '/activity' ? 'white' : 'rgba(0,0,0,.65)'};
   width: ${(props) => props.location === '/activity' ? '250px' : 'auto'};
-  font-weight: 500;
-    span {
+  span {
     font-size: 18px;
     font-wight: 400;
     margin-left: 10px;
   }
 
   @media(max-width: 768px) {
-    margin-right: 40px;
+    width: calc(100% - 16px);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    margin: 0;
   }
 
   @media(max-width: 600px) {
     color: rgba(0,0,0,.65);
     display: flex;
-    margin-right: 15px;
   }
 `;
 

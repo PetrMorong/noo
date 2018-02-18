@@ -12,6 +12,7 @@ const SidemenuLinkWrap = styled(Link)`
   color: rgba(0,0,0,.9);
   cursor: pointer;
   text-decoration: none;
+  font-size: 14px;
 
   &:hover {
     background: #EEEEEE;

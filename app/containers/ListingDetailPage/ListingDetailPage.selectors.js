@@ -29,6 +29,10 @@ const makeSelectmakeOfferForm = () => createSelector(
   selectForm,
   (state) => state.makeOfferForm
 );
+const makeSelectmakeViewingForm = () => createSelector(
+  selectForm,
+  (state) => state.scheduleViewingListing
+);
 const makeSelectRoomatesFound = () => createSelector(
   selectListingDetail,
   (state) => state.get('roomatesFound')
@@ -79,4 +83,5 @@ export {
   makeSelectRoomatesFound,
   makeSelectGarantorsFound,
   makeSelectSentOfferData,
+  makeSelectmakeViewingForm,
 };

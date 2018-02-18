@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
-import RedAlert from './RedAlert';
 
 const BurgerWrapper = styled.div`
   padding: 0;
   position: relative;
+  z-index: 5;
 `;
 
-function HeaderBurger({ onClick, hasAlert, location }) {
+function HeaderBurger({ onClick, location }) {
   return (
     <BurgerWrapper>
-      {hasAlert && <RedAlert type="burger" />}
       <IconButton onClick={onClick} iconStyle={{ fill: location === '/activity' ? 'white' : 'currentColor' }}>
         <MenuIcon />
       </IconButton>
@@ -24,7 +23,6 @@ function HeaderBurger({ onClick, hasAlert, location }) {
 
 HeaderBurger.propTypes = {
   onClick: PropTypes.func,
-  hasAlert: PropTypes.bool,
   location: PropTypes.string,
 };
 

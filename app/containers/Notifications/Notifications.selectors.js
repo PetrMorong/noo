@@ -24,10 +24,14 @@ const makeSelectData = () => createSelector(
   selectNotifications,
   (state) => state.get('data')
 );
-
+const makeSelectLoadingNotifications = () => createSelector(
+  selectNotifications,
+  (state) => state.get('loading')
+);
 export {
   makeSelectNotificationData,
   selectNotifications,
   makeSelectNotificationOpen,
   makeSelectData,
+  makeSelectLoadingNotifications,
 };

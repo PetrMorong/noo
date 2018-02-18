@@ -14,6 +14,7 @@ import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import { toggleSideMenu } from 'containers/App/actions';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import { makeSelectUser } from 'containers/App/selectors';
+import HeaderBurger from 'components/Header/components/HeaderBurger';
 
 import AccountWrap from './components/AccountWrap';
 import ProfileWrap from './components/ProfileWrap';
@@ -24,58 +25,35 @@ import SidemenuLink from './components/SidemenuLink';
 import SidemenuOverlay from './components/SidemenuOverlay';
 import messages from './messages';
 import { makeSelectSideMenuOpen, makeSelectPathname } from './Sidemenu.selectors';
-import { HeaderProfileUsername, HeaderProfileEmail } from '../Header/Header.styles';
 
-function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme, logedIn }) {
+function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme, user }) {
   return (
     <div>
       <SidemenuWrap opened={sideMenuOpen}>
-        <SidemenuHeader>
-          <Logo />
+        <SidemenuHeader user={user}>
+          <HeaderBurger onClick={handleBurgerClick} />
+          <span>Nookpad</span>
         </SidemenuHeader>
-        <AccountWrap>
-          <IconButton
-            iconStyle={{ height: '100px', width: '100px' }}
-            style={{ padding: 0, height: 100, width: 100 }}
-          >
-            <AccountIcon />
-          </IconButton>
-          <HeaderProfileUsername>Mehdi Amor</HeaderProfileUsername>
-          <HeaderProfileEmail>mehdi.amor@gmail.com</HeaderProfileEmail>
-        </AccountWrap>
+        {user &&
+          <AccountWrap to="/profile-settings">
+            <img src={user.get('picture')} alt="" />
+            <b><span>{user.get('firstName')} {user.get('lastName')}</span></b>
+            <p>{user.get('email')}</p>
+          </AccountWrap>
+        }
         <SidemenuLink
           message={messages.home}
           currentPathName={pathname}
           icon={<HomeIcon style={{ color: pathname === '/' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
           to="/"
         />
-        <ProfileWrap>
-          <SidemenuLink
-            message={messages.activity}
-            currentPathName={pathname}
-            icon={<NotifyIcon style={{ color: muiTheme.palette.textColor }} />}
-            to="/"
-          />
-        </ProfileWrap>
-        <SidemenuLink
+        {/* <SidemenuLink
           message={messages.createProperty}
           currentPathName={pathname}
           icon={<AddIcon style={{ color: pathname === '/create-property' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
           to="/list-property"
-        />
-        <SidemenuLink
-          message={messages.findProperty}
-          currentPathName={pathname}
-          icon={<SearchIcon style={{ color: pathname === '/search' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
-          to="/search"
-        />
-        <SidemenuLink
-          message={messages.favoriteProperty}
-          currentPathName={pathname}
-          icon={<FavoriteIcon style={{ color: pathname === '/favorite-properties' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
-          to="/favorite-properties"
-        />
-        {logedIn &&
+        /> */}
+        {user &&
           <SidemenuLink
             message={messages.activity}
             currentPathName={pathname}
@@ -83,7 +61,19 @@ function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme, logedIn
             to="/activity"
           />
         }
-        {logedIn &&
+        <SidemenuLink
+          message={messages.findProperty}
+          currentPathName={pathname}
+          icon={<SearchIcon style={{ color: pathname === '/search' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
+          to="/search"
+        />
+        {/* <SidemenuLink
+          message={messages.favoriteProperty}
+          currentPathName={pathname}
+          icon={<FavoriteIcon style={{ color: pathname === '/favorite-properties' ? muiTheme.palette.primary1Color : muiTheme.palette.textColor }} />}
+          to="/favorite-properties"
+        /> */}
+        {user &&
           <ProfileWrap>
             <SidemenuLink
               message={messages.signOut}
@@ -104,7 +94,7 @@ Sidemenu.propTypes = {
   sideMenuOpen: PropTypes.bool,
   pathname: PropTypes.string,
   muiTheme: PropTypes.object,
-  logedIn: PropTypes.object,
+  user: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -116,7 +106,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   sideMenuOpen: makeSelectSideMenuOpen(),
   pathname: makeSelectPathname(),
-  logedIn: makeSelectUser(),
+  user: makeSelectUser(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
