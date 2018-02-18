@@ -34,14 +34,7 @@ export default class FavoritePage extends React.Component { // eslint-disable-li
           <meta name="description" content="Favorite page of Nookpad" />
         </Helmet>
         <Wrap>
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
-          <ListingCard maxWidth={320} isFavorite />
+          <ListingCard isFavorite />
         </Wrap>
       </div>
     );
