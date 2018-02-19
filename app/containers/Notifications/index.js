@@ -70,7 +70,10 @@ Notifications.propTypes = {
   opened: PropTypes.bool,
   handleToggleNotifications: PropTypes.func,
   handleGetNotifications: PropTypes.func,
-  data: PropTypes.array,
+  data: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   loading: PropTypes.bool,
 };
 

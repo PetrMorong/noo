@@ -57,7 +57,10 @@ function HeaderProfile({ onSignOut, history, location }) {
 
 HeaderProfile.propTypes = {
   onSignOut: PropTypes.func,
-  location: PropTypes.string,
+  location: PropTypes.PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   history: React.PropTypes.shape({
     push: React.PropTypes.func.isRequired,
   }).isRequired,

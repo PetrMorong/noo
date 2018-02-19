@@ -75,10 +75,16 @@ Header.propTypes = {
   handleBurgerClick: PropTypes.func,
   handleLogin: PropTypes.func,
   handleSignOut: PropTypes.func,
-  user: PropTypes.bool,
+  user: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool,
+  ]),
   location: PropTypes.string,
   handleToggleNotifications: PropTypes.func,
-  notifications: PropTypes.array,
+  notifications: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
 };
 
 export function mapDispatchToProps(dispatch) {

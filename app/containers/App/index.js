@@ -6,7 +6,6 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import SearchPage from 'containers/SearchPage/Loadable';
 import FavoritePage from 'containers/FavoritePage/Loadable';
-import SortSettingsPage from 'containers/SortSettingsPage/Loadable';
 import ListingDetailPage from 'containers/ListingDetailPage/Loadable';
 import ListPropertyPage from 'containers/ListPropertyPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -45,7 +44,6 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search" component={SearchPage} />
-        <Route path="/sort-settings" component={SortSettingsPage} />
         <Route path="/listing-detail" component={ListingDetailPage} />
         <Route path="/favorite-properties" component={FavoritePage} />
         <Route path="/list-property" component={ListPropertyPage} />

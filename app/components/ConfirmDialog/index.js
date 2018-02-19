@@ -14,26 +14,30 @@ import FlatButton from 'material-ui/FlatButton';
 
 function ConfirmDialog({ handleToggleConfirmDialog, openConfirmDialog, dataConfirmDialog, handleClickConfirm }) {
   return (
-    <Dialog
-      actions={[
-        <FlatButton
-          label={dataConfirmDialog.cancelLabel}
-          primary
-          onClick={handleToggleConfirmDialog}
-        />,
-        <FlatButton
-          label={dataConfirmDialog.confirmLabel}
-          primary
-          onClick={_.partial(handleClickConfirm, dataConfirmDialog.confirmOnClick)}
-        />,
-      ]}
-      contentStyle={{ minWidth: '350px', width: '350px' }}
-      modal={false}
-      open={openConfirmDialog}
-      onRequestClose={handleToggleConfirmDialog}
-    >
-      {dataConfirmDialog.message}
-    </Dialog>
+    <div id="confirmDialog">
+      {openConfirmDialog &&
+        <Dialog
+          actions={[
+            <FlatButton
+              label={_.get(dataConfirmDialog, 'cancelLabel', '')}
+              primary
+              onClick={handleToggleConfirmDialog}
+            />,
+            <FlatButton
+              label={_.get(dataConfirmDialog, 'confirmLabel', '')}
+              primary
+              onClick={_.partial(handleClickConfirm, dataConfirmDialog.confirmOnClick)}
+            />,
+          ]}
+          contentStyle={{ minWidth: '350px', width: '350px' }}
+          modal={false}
+          open={openConfirmDialog}
+          onRequestClose={handleToggleConfirmDialog}
+        >
+          {dataConfirmDialog.message}
+        </Dialog>
+      }
+    </div>
   );
 }
 

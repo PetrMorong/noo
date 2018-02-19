@@ -20,7 +20,10 @@ function Notification({ onClick, notifications, location }) {
 
 Notification.propTypes = {
   onClick: PropTypes.func,
-  notifications: PropTypes.array,
+  notifications: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   location: PropTypes.string,
 };
 

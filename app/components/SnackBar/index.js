@@ -16,7 +16,7 @@ function SnackbarComponent({ data, handleClose }) {
     <div>
       <Snackbar
         open={data.length > 0}
-        message={_.get(data[0], 'message')}
+        message={_.get(data[0], 'message', '')}
         autoHideDuration={4000}
         onRequestClose={handleClose}
         style={{ background: 'rgba(0,0,0,.95)' }}
@@ -26,7 +26,10 @@ function SnackbarComponent({ data, handleClose }) {
 }
 
 SnackbarComponent.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   handleClose: PropTypes.func,
 };
 

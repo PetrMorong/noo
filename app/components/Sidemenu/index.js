@@ -5,10 +5,10 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import SearchIcon from 'material-ui/svg-icons/action/search';
-import AddIcon from 'material-ui/svg-icons/content/add';
-import IconButton from 'material-ui/IconButton';
-import AccountIcon from 'material-ui/svg-icons/action/account-circle';
-import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
+// import AddIcon from 'material-ui/svg-icons/content/add';
+// import IconButton from 'material-ui/IconButton';
+// import AccountIcon from 'material-ui/svg-icons/action/account-circle';
+// import FavoriteIcon from 'material-ui/svg-icons/action/favorite-border';
 import SignOutIcon from 'material-ui/svg-icons/action/exit-to-app';
 import NotifyIcon from 'material-ui/svg-icons/social/notifications';
 import { toggleSideMenu } from 'containers/App/actions';
@@ -19,7 +19,7 @@ import HeaderBurger from 'components/Header/components/HeaderBurger';
 import AccountWrap from './components/AccountWrap';
 import ProfileWrap from './components/ProfileWrap';
 import SidemenuWrap from './components/SidemenuWrap';
-import Logo from '../Header/components/Logo';
+// import Logo from '../Header/components/Logo';
 import SidemenuHeader from './components/SidemenuHeader';
 import SidemenuLink from './components/SidemenuLink';
 import SidemenuOverlay from './components/SidemenuOverlay';
@@ -94,7 +94,10 @@ Sidemenu.propTypes = {
   sideMenuOpen: PropTypes.bool,
   pathname: PropTypes.string,
   muiTheme: PropTypes.object,
-  user: PropTypes.object,
+  user: PropTypes.PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object,
+  ]),
 };
 
 export function mapDispatchToProps(dispatch) {
