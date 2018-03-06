@@ -1,4 +1,3 @@
-
 import { call, put, takeLatest, all, select } from 'redux-saga/effects';
 import request from 'utils/request';
 import { apiUrl } from 'config/index';

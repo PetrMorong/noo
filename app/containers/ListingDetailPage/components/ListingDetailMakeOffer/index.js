@@ -8,7 +8,6 @@ import {
   TextField,
   DatePicker,
 } from 'redux-form-material-ui';
-import styled from 'styled-components';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FileIcon from 'material-ui/svg-icons/editor/insert-drive-file';
@@ -28,82 +27,18 @@ import AutoComplete from 'material-ui/AutoComplete';
 import IconButton from 'material-ui/IconButton';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import { getUserByEmail, submitOffer } from 'containers/ListingDetailPage/ListingDetailPage.actions';
-
-const Wrap = styled.div`
-  margin-right: 5px;
-  margin-top: -30px;
-  .makeOffer-priceInput {
-    width: 50% !important;
-    margin-right: 15px;
-  }
-  .makeOffer-durationInput {
-    width: 50% !important;
-  }
-  .makeOffer-dateInput {
-    width: 50% !important;
-    margin-right: 15px;
-  }
-`;
-const Row = styled.div`
-  display: flex;
-  margin-top: -15px;
-`;
-const Col = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: baseline
-`;
-const Error = styled.div`
-  font-size: 12px;
-  color: red;
-  margin-left: 15px;
-  margin-top: 5px;
-`;
-const FileName = styled.div`
-  font-size: 12px;
-  color: rgba(0,0,0,.7);
-  margin-left: 15px;
-  margin-top: 5px;
-`;
-const RoomateWrap = styled.div`
-  margin-left: 10px;
-  margin-top: 15px;
-  position: relative;
-  width: 100%;
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
-`;
-export const Img = styled.img`
-  min-width: 35px;
-  min-height: 35px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-`;
-export const RoomateName = styled.span`
-  color: rgba(0,0,0,.7);
-`;
-const SaveButtonWrap = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 15px;
-`;
-const stylesUploadInput = {
-  uploadInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: '100%',
-    opacity: 0,
-    zIndex: 555,
-  },
-};
+import {
+  Wrap,
+  Row,
+  Col,
+  Error,
+  FileName,
+  RoomateWrap,
+  Img,
+  RoomateName,
+  SaveButtonWrap,
+  stylesUploadInput,
+} from './styles';
 
 class ListingDetailMakeOffer extends React.Component {
   constructor() {

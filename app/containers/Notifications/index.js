@@ -23,11 +23,7 @@ import {
   Body,
 } from './styles';
 
-class Notifications extends React.Component {
-
-  componentWillMount() {
-    this.props.handleGetNotifications();
-  }
+class Notifications extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     const { opened, handleToggleNotifications, data, loading } = this.props;

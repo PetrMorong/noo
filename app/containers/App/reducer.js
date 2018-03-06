@@ -1,12 +1,14 @@
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
+import { LOGIN_SUCCESS } from 'containers/LoginPage/LoginPage.constants';
 import * as types from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
   sideMenuOpen: false,
-  user: {
+  user: false,
+  /* user: {
     id: 1,
     email: 'email@email.com',
     password: '12345',
@@ -20,9 +22,10 @@ const initialState = fromJS({
     identityVerified: true,
     paymentMethod: 'String',
     payeeMethod: 'string',
-  },
+  }, */
   openConfirmDialog: false,
   dataConfirmDialog: {},
+  checkingToken: true,
 });
 
 function appReducer(state = initialState, action) {
@@ -33,9 +36,13 @@ function appReducer(state = initialState, action) {
     case LOCATION_CHANGE:
       return state
         .set('sideMenuOpen', false);
-    case types.USER_LOGIN:
+    case LOGIN_SUCCESS:
       return state
-        .set('user', initialState.get('user'));
+        .set('user', action.user)
+        .set('checkingToken', false);
+    case types.NO_USER_FOUND:
+      return state
+        .set('checkingToken', false);
     case types.USER_SIGN_OUT:
       return state
         .set('user', false);

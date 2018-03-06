@@ -8,7 +8,8 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import { SUBMIT_SCHEDULE_VIEWING_SUCCESS } from 'containers/ListingDetailPage/ListingDetailPage.constants';
 import { SUBMIT_COUNTER_OFFER_SUCCESS } from 'containers/ActivityPage/ActivityPage.constants';
-
+import { CREATE_ACCOUNT_SUCCESS } from 'containers/CreateAccountPage/CreateAccountPage.constants';
+import { LOGIN_SUCCESS } from 'containers/LoginPage/LoginPage.constants';
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
@@ -50,18 +51,34 @@ export default function createReducer(injectedReducers) {
     language: languageProviderReducer,
     ...injectedReducers,
     form: formReducer.plugin({
-      scheduleViewingListing: (state, action) => { // is name of form given to reduxForm()
+      scheduleViewingListing: (state, action) => {
         switch (action.type) {
           case SUBMIT_SCHEDULE_VIEWING_SUCCESS:
-            return undefined;       // <--- blow away form data
+            return undefined;
           default:
             return state;
         }
       },
-      counterOfferForm: (state, action) => { // is name of form given to reduxForm()
+      counterOfferForm: (state, action) => {
         switch (action.type) {
           case SUBMIT_COUNTER_OFFER_SUCCESS:
-            return undefined;       // <--- blow away form data
+            return undefined;
+          default:
+            return state;
+        }
+      },
+      createAccountForm: (state, action) => {
+        switch (action.type) {
+          case CREATE_ACCOUNT_SUCCESS:
+            return undefined;
+          default:
+            return state;
+        }
+      },
+      loginForm: (state, action) => {
+        switch (action.type) {
+          case LOGIN_SUCCESS:
+            return undefined;
           default:
             return state;
         }

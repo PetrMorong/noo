@@ -36,9 +36,9 @@ function Sidemenu({ handleBurgerClick, sideMenuOpen, pathname, muiTheme, user })
         </SidemenuHeader>
         {user &&
           <AccountWrap to="/profile-settings">
-            <img src={user.get('picture')} alt="" />
-            <b><span>{user.get('firstName')} {user.get('lastName')}</span></b>
-            <p>{user.get('email')}</p>
+            <img src="" alt="" />
+            <b><span>{user.firstName} {user.lastName}</span></b>
+            <p>{user.email}</p>
           </AccountWrap>
         }
         <SidemenuLink

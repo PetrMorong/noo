@@ -16,14 +16,23 @@ export function signOut() {
     type: types.USER_SIGN_OUT,
   };
 }
+export function checkToken() {
+  return {
+    type: types.CHECK_TOKEN,
+  };
+}
+export function noUserFound() {
+  return {
+    type: types.NO_USER_FOUND,
+  };
+}
+
 export function toggleConfirmDialog(data) {
   return {
     type: types.TOGGLE_CONFIRM_DIALOG,
     data,
   };
 }
-
-// functions called by confirm dialog component must be stored here, eventhough they are form different reducer
 export function unpublishListing() {
   return {
     type: UNPUBLISH_LISTING,

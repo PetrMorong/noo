@@ -19,11 +19,15 @@ const makeSelectDataConfirmDialog = () => createSelector(
   selectGlobal,
   (globalState) => globalState.get('dataConfirmDialog')
 );
-
+const makeSelectCheckingToken = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('checkingToken')
+);
 export {
   selectGlobal,
   makeSelectLocation,
   makeSelectUser,
   makeSelectOpenConfirmDialog,
   makeSelectDataConfirmDialog,
+  makeSelectCheckingToken,
 };

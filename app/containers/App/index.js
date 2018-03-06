@@ -11,6 +11,8 @@ import ListPropertyPage from 'containers/ListPropertyPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ProfileSettingsPage from 'containers/ProfileSettingsPage/Loadable';
 import ActivityPage from 'containers/ActivityPage/Loadable';
+import LoginPage from 'containers/LoginPage/Loadable';
+import CreateAccountPage from 'containers/CreateAccountPage/Loadable';
 import Header from 'components/Header';
 import Sidemenu from 'components/Sidemenu';
 import Notifications from 'containers/Notifications';
@@ -49,6 +51,8 @@ export default function App() {
         <Route path="/list-property" component={ListPropertyPage} />
         <Route path="/profile-settings" component={ProfileSettingsPage} />
         <Route path="/activity" component={ActivityPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/create-account" component={CreateAccountPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
     </AppWrapper>

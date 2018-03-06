@@ -61,9 +61,8 @@ function Header({ handleBurgerClick, handleLogin, user, handleSignOut, location,
         :
         <HeaderFlatButtonWrap>
           <HeaderFlatButton
-            to="/signIn"
+            to="/login"
             labelKey="nookpad.components.Header.signIn.message"
-            onClick={handleLogin}
           />
         </HeaderFlatButtonWrap>
       }

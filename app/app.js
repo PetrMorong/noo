@@ -17,6 +17,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FontFaceObserver from 'fontfaceobserver';
 import createHistory from 'history/createBrowserHistory';
+
 import 'sanitize.css/sanitize.css';
 
 import ScrollToTop from 'components/ScrollToTop';
